@@ -1,0 +1,12 @@
+# What the report uploader actually calls, taken from its code and logs.
+workload: report-uploader
+permissions:
+  - sid: WriteReports
+    actions: [s3:PutObject, s3:GetObject]
+    resources: ["arn:aws:s3:::example-reports/*"]
+  - sid: ListReports
+    actions: [s3:ListBucket]
+    resources: ["arn:aws:s3:::example-reports"]
+  - sid: AppLogs
+    actions: [logs:CreateLogStream, logs:PutLogEvents]
+    resources: ["arn:aws:logs:us-east-1:123456789012:log-group:/app/report-uploader:*"]

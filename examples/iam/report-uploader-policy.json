@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AppStorage",
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AppLogs",
+      "Effect": "Allow",
+      "Action": ["logs:CreateLogStream", "logs:PutLogEvents", "logs:Describe*"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DeployHelpers",
+      "Effect": "Allow",
+      "Action": ["iam:PassRole", "lambda:CreateFunction", "lambda:UpdateFunctionCode", "sts:AssumeRole"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "KeepAuditTrail",
+      "Effect": "Deny",
+      "Action": "s3:DeleteBucket",
+      "Resource": "*"
+    }
+  ]
+}
