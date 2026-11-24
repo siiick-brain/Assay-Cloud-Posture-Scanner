@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assay-cspm.local/schemas/findings/1.0.0",
+  "title": "assay-cspm findings report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "scan", "findings"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "scan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scan_id", "started_at", "finished_at", "mode", "providers", "resource_count", "tool_version"],
+      "properties": {
+        "scan_id": {"type": "string", "minLength": 1},
+        "started_at": {"type": "string", "format": "date-time"},
+        "finished_at": {"type": "string", "format": "date-time"},
+        "mode": {"enum": ["emulator", "fixture", "live"]},
+        "providers": {"type": "array", "items": {"enum": ["aws", "azure", "terraform"]}},
+        "resource_count": {"type": "integer", "minimum": 0},
+        "tool_version": {"type": "string"}
+      }
+    },
+    "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}}
+  },
+  "$defs": {
+    "severity": {"enum": ["critical", "high", "medium", "low", "info"]},
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "rule_id", "source", "resource_id", "resource_type", "provider", "region",
+        "title", "severity_base", "score", "band", "rationale", "impact", "remediation",
+        "evidence", "controls", "references", "state", "verification_status"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+        "rule_id": {"type": "string", "minLength": 1},
+        "source": {"enum": ["assay", "trivy", "prowler", "checkov", "openscap"]},
+        "resource_id": {"type": "string"},
+        "resource_type": {"type": "string"},
+        "provider": {"type": "string"},
+        "region": {"type": "string"},
+        "title": {"type": "string"},
+        "severity_base": {"$ref": "#/$defs/severity"},
+        "score": {"type": "number", "minimum": 0, "maximum": 10},
+        "band": {"$ref": "#/$defs/severity"},
+        "rationale": {"type": "string"},
+        "impact": {"type": "string"},
+        "remediation": {"type": "string"},
+        "evidence": {"type": "object"},
+        "controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["framework", "control_id"],
+            "properties": {"framework": {"type": "string"}, "control_id": {"type": "string"}}
+          }
+        },
+        "references": {"type": "array", "items": {"type": "string"}},
+        "state": {"enum": ["new", "open", "assigned", "fixed_claimed", "verified_closed", "reopened"]},
+        "verification_status": {"enum": ["verified", "observed_unverified", "not_verified"]},
+        "owner": {"type": ["string", "null"]},
+        "first_seen": {"type": ["string", "null"], "format": "date-time"},
+        "last_seen": {"type": ["string", "null"], "format": "date-time"},
+        "due_date": {"type": ["string", "null"], "format": "date-time"},
+        "scan_id": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

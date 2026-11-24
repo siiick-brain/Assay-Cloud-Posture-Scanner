@@ -1,0 +1,74 @@
+# Read-only AWS operations the scanner may call. Frozen at contracts-v1.
+# The botocore hook blocks anything not listed and anything in `deny`, even if listed.
+# Names use the botocore service id and the API operation name.
+version: 1
+allowed_prefixes: [Describe, List, Get]
+deny:
+  - secretsmanager:GetSecretValue
+  - s3:GetObject
+  - kms:Decrypt
+  - kms:GenerateDataKey
+  - iam:GenerateCredentialReport
+  - ssm:GetParameter
+  - ssm:GetParameters
+operations:
+  sts:
+    - GetCallerIdentity
+  s3:
+    - ListBuckets
+    - GetBucketAcl
+    - GetBucketPolicy
+    - GetBucketPolicyStatus
+    - GetPublicAccessBlock
+    - GetBucketEncryption
+    - GetBucketVersioning
+    - GetBucketLogging
+    - GetBucketLocation
+    - GetBucketTagging
+  ec2:
+    - DescribeRegions
+    - DescribeSecurityGroups
+    - DescribeVolumes
+    - DescribeInstances
+    - GetEbsEncryptionByDefault
+  rds:
+    - DescribeDBInstances
+  iam:
+    - ListUsers
+    - ListRoles
+    - ListPolicies
+    - GetPolicy
+    - GetPolicyVersion
+    - ListAttachedUserPolicies
+    - ListUserPolicies
+    - GetUserPolicy
+    - ListAttachedRolePolicies
+    - ListRolePolicies
+    - GetRolePolicy
+    - GetRole
+    - ListMFADevices
+    - GetLoginProfile
+    - ListAccessKeys
+    - GetAccessKeyLastUsed
+    - ListUserTags
+    - ListRoleTags
+    - GetAccountSummary
+    - GetAccountPasswordPolicy
+  cloudtrail:
+    - DescribeTrails
+    - GetTrailStatus
+    - GetEventSelectors
+  kms:
+    - ListKeys
+    - ListAliases
+    - DescribeKey
+    - GetKeyRotationStatus
+    - GetKeyPolicy
+    - ListResourceTags
+  secretsmanager:
+    - ListSecrets
+    - DescribeSecret
+  acm:
+    - ListCertificates
+    - DescribeCertificate
+    - ListTagsForCertificate
