@@ -2,7 +2,47 @@
 
 Cloud security posture scanner for AWS and Azure. It reads resource configuration through read-only API calls, flags public storage, open network rules, missing encryption, risky IAM and weak key handling, scores each finding from 0 to 10 and writes evidence reports with control references from seven security frameworks.
 
-Built and tested against the Moto emulator and synthetic fixtures only. It has never run against a real cloud account.
+[![ci](https://github.com/siiick-brain/Assay-Cloud-Posture-Scanner/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/siiick-brain/Assay-Cloud-Posture-Scanner/actions/workflows/ci.yml)
+[![security](https://github.com/siiick-brain/Assay-Cloud-Posture-Scanner/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/siiick-brain/Assay-Cloud-Posture-Scanner/actions/workflows/security.yml)
+
+**Nothing in this repository ran against a real cloud account.** AWS was scanned only on the Moto emulator, and Azure only from synthetic fixtures. Live mode exists but is off by default and Not verified.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  subgraph sources["Sources (local only)"]
+    moto["Moto 5.2.6 emulator<br/>Terraform testbed, 25 resources"]
+    azfx["Azure fixtures<br/>synthetic JSON"]
+    plan["Terraform plan JSON"]
+    tools["Trivy, Prowler, Checkov<br/>and OpenSCAP results"]
+  end
+  subgraph scanner["assay-cspm"]
+    hook["allowlist hook<br/>Describe, List and Get only"]
+    col["collectors<br/>14 AWS types, 5 Azure types"]
+    eng["rule engine<br/>33 rules"]
+    score["scoring<br/>0 to 10 and a band"]
+    map["mapping<br/>7 framework families"]
+    ing["ingest<br/>dedupe by resource and issue"]
+    store[("SQLite store<br/>lifecycle, SLA, history")]
+    rep["reports<br/>JSON, SARIF, Markdown, HTML"]
+  end
+  subgraph checks["Standalone checks"]
+    iam["iam-review<br/>least-privilege proposal and diff"]
+    tls["tls-check<br/>certs, keys, loopback endpoints"]
+  end
+  ci["CI static check<br/>no unlisted boto3 call"]
+  moto -->|read-only API calls| hook --> col
+  azfx --> col
+  plan --> col
+  col -->|normalized resources| eng --> score --> map --> store
+  tools --> ing --> store
+  store -->|rescan closes or reopens| store
+  store --> rep -->|SHA-256 manifest| out["report set"]
+  ci -. guards .-> hook
+```
+
+Collectors return normalized resources and the engine runs the rules for each resource type. Scoring and mapping enrich every finding before the store tracks it across scans. `iam-review` and `tls-check` run on their own and print results with an exit code. The diagram source is [docs/diagrams/architecture.mmd](docs/diagrams/architecture.mmd). Data flow and design decisions: [docs/architecture.md](docs/architecture.md) and [docs/adr/](docs/adr/).
 
 ## Summary
 
@@ -51,10 +91,6 @@ uv run cspm report --input out/aws/findings.json --out out/report
 Azure fixtures: `uv run cspm scan --provider azure --mode fixture --source testbed/azure-fixtures/insecure --out out/azure`.
 
 Live mode is optional and off by default. It needs `--live`, `CSPM_ALLOW_LIVE=1`, short-lived credentials in the environment and a role limited to SecurityAudit and ViewOnlyAccess in a sandbox account. See docs/procedures/run-a-scan.md.
-
-## Architecture
-
-Collectors return normalized resources, the engine runs rules per resource type, scoring and mapping enrich each finding and the store tracks it across scans. Diagram and data flow: docs/architecture.md. Design decisions: docs/adr/.
 
 ## Rules
 

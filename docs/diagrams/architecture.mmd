@@ -1,34 +1,30 @@
-%% Module view of assay-cspm. Mirrors docs/architecture.md.
 flowchart LR
-    subgraph Inputs
-        AWS[AWS API or Moto]
-        AZ[Azure fixtures]
-        TF[Terraform plan JSON]
-        EXT[Trivy, Prowler, Checkov and OpenSCAP output]
-    end
-    subgraph cspm
-        HOOK[allowlist hook]
-        COL[collectors]
-        ENG[rule engine]
-        RULES[rules]
-        SCORE[scoring]
-        MAP[mapping]
-        ING[ingest]
-        IAM[iam-review]
-        TLS[tls-check]
-        STORE[(SQLite store)]
-        REP[reports]
-    end
-    CLI[cspm CLI] --> COL
-    CLI --> IAM
-    CLI --> TLS
-    AWS --> HOOK --> COL
-    AZ --> COL
-    TF --> COL
-    COL --> ENG
-    RULES --> ENG
-    ENG --> SCORE --> MAP --> STORE
-    EXT --> ING --> STORE
-    IAM --> REP
-    TLS --> STORE
-    STORE --> REP --> OUT[JSON, SARIF, Markdown, HTML and manifest]
+  subgraph sources["Sources (local only)"]
+    moto["Moto 5.2.6 emulator<br/>Terraform testbed, 25 resources"]
+    azfx["Azure fixtures<br/>synthetic JSON"]
+    plan["Terraform plan JSON"]
+    tools["Trivy, Prowler, Checkov<br/>and OpenSCAP results"]
+  end
+  subgraph scanner["assay-cspm"]
+    hook["allowlist hook<br/>Describe, List and Get only"]
+    col["collectors<br/>14 AWS types, 5 Azure types"]
+    eng["rule engine<br/>33 rules"]
+    score["scoring<br/>0 to 10 and a band"]
+    map["mapping<br/>7 framework families"]
+    ing["ingest<br/>dedupe by resource and issue"]
+    store[("SQLite store<br/>lifecycle, SLA, history")]
+    rep["reports<br/>JSON, SARIF, Markdown, HTML"]
+  end
+  subgraph checks["Standalone checks"]
+    iam["iam-review<br/>least-privilege proposal and diff"]
+    tls["tls-check<br/>certs, keys, loopback endpoints"]
+  end
+  ci["CI static check<br/>no unlisted boto3 call"]
+  moto -->|read-only API calls| hook --> col
+  azfx --> col
+  plan --> col
+  col -->|normalized resources| eng --> score --> map --> store
+  tools --> ing --> store
+  store -->|rescan closes or reopens| store
+  store --> rep -->|SHA-256 manifest| out["report set"]
+  ci -. guards .-> hook
