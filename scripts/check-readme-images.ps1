@@ -93,8 +93,8 @@ if (-not $tesseract) {
             $ext = [IO.Path]::GetExtension($img).ToLowerInvariant()
             $pages = @()
             if ($ffmpeg) {
-                # Upscaling helps Tesseract read small terminal text; GIFs are split into one PNG per frame.
-                & $ffmpeg -v error -y -i $img -vf 'scale=iw*2:-1:flags=lanczos' (Join-Path $work "$name-%03d.png")
+                # Upscaling helps Tesseract read small terminal text. mpdecimate drops repeated GIF frames, so each step is read once.
+                & $ffmpeg -v error -y -i $img -vf 'mpdecimate,scale=iw*2:-1:flags=lanczos' -fps_mode vfr (Join-Path $work "$name-%03d.png")
                 if ($LASTEXITCODE -ne 0) { $failures.Add("ffmpeg could not read $rel"); continue }
                 $pages = Get-ChildItem $work -Filter "$name-*.png" | ForEach-Object { $_.FullName }
             } elseif ($ext -eq '.gif') {
