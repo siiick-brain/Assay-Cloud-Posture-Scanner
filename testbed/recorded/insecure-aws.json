@@ -1,0 +1,307 @@
+[
+  {
+    "config": {
+      "acl_grants": [],
+      "encryption": null,
+      "logging_enabled": false,
+      "name": "assay-insecure-unencrypted",
+      "policy": null,
+      "policy_is_public": false,
+      "public_access_block": {
+        "block_public_acls": true,
+        "block_public_policy": true,
+        "ignore_public_acls": true,
+        "restrict_public_buckets": true
+      },
+      "versioning": "Disabled"
+    },
+    "id": "arn:aws:s3:::assay-insecure-unencrypted",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "criticality": "medium",
+      "data_sensitivity": "restricted"
+    },
+    "type": "aws.s3.bucket"
+  },
+  {
+    "config": {
+      "acl_grants": [
+        {
+          "grantee_uri": "http://acs.amazonaws.com/groups/s3/LogDelivery",
+          "permission": "READ_ACP"
+        }
+      ],
+      "encryption": {
+        "algorithm": "AES256",
+        "kms_key_id": null
+      },
+      "logging_enabled": true,
+      "name": "assay-insecure-logs",
+      "policy": null,
+      "policy_is_public": false,
+      "public_access_block": {
+        "block_public_acls": true,
+        "block_public_policy": true,
+        "ignore_public_acls": true,
+        "restrict_public_buckets": true
+      },
+      "versioning": "Enabled"
+    },
+    "id": "arn:aws:s3:::assay-insecure-logs",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "criticality": "low",
+      "data_sensitivity": "internal"
+    },
+    "type": "aws.s3.bucket"
+  },
+  {
+    "config": {
+      "acl_grants": [
+        {
+          "grantee_uri": "http://acs.amazonaws.com/groups/global/AllUsers",
+          "permission": "READ"
+        }
+      ],
+      "encryption": {
+        "algorithm": "AES256",
+        "kms_key_id": null
+      },
+      "logging_enabled": true,
+      "name": "assay-insecure-public",
+      "policy": null,
+      "policy_is_public": false,
+      "public_access_block": {
+        "block_public_acls": false,
+        "block_public_policy": false,
+        "ignore_public_acls": false,
+        "restrict_public_buckets": false
+      },
+      "versioning": "Enabled"
+    },
+    "id": "arn:aws:s3:::assay-insecure-public",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "aws.s3.bucket"
+  },
+  {
+    "config": {
+      "arn": "arn:aws:iam::123456789012:policy/assay-insecure-admin-wildcard",
+      "attached": true,
+      "aws_managed": false,
+      "document": {
+        "Statement": [
+          {
+            "Action": "*",
+            "Effect": "Allow",
+            "Resource": "*"
+          }
+        ],
+        "Version": "2012-10-17"
+      },
+      "name": "assay-insecure-admin-wildcard"
+    },
+    "id": "arn:aws:iam::123456789012:policy/assay-insecure-admin-wildcard",
+    "provider": "aws",
+    "region": "global",
+    "tags": {},
+    "type": "aws.iam.policy"
+  },
+  {
+    "config": {
+      "arn": "arn:aws:iam::123456789012:policy/assay-insecure-s3-wildcard",
+      "attached": true,
+      "aws_managed": false,
+      "document": {
+        "Statement": [
+          {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "*"
+          }
+        ],
+        "Version": "2012-10-17"
+      },
+      "name": "assay-insecure-s3-wildcard"
+    },
+    "id": "arn:aws:iam::123456789012:policy/assay-insecure-s3-wildcard",
+    "provider": "aws",
+    "region": "global",
+    "tags": {},
+    "type": "aws.iam.policy"
+  },
+  {
+    "config": {
+      "access_keys": [
+        {
+          "created": "2026-11-23T20:14:09Z",
+          "key_id_suffix": "LSN2",
+          "status": "Active"
+        }
+      ],
+      "attached_policy_arns": [],
+      "has_console_password": true,
+      "inline_policies": [],
+      "mfa_devices": 0,
+      "name": "assay-insecure-dev"
+    },
+    "id": "arn:aws:iam::123456789012:user/assay-insecure-dev",
+    "provider": "aws",
+    "region": "global",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "aws.iam.user"
+  },
+  {
+    "config": {
+      "password_policy": null,
+      "root_access_keys_present": false,
+      "root_mfa_enabled": false
+    },
+    "id": "123456789012:global:aws.iam.account",
+    "provider": "aws",
+    "region": "global",
+    "tags": {},
+    "type": "aws.iam.account"
+  },
+  {
+    "config": {
+      "group_id": "sg-d56489b316c7f98a6",
+      "ingress": [],
+      "name": "default",
+      "vpc_id": "vpc-43c2b0c3ae912ae0a"
+    },
+    "id": "arn:aws:ec2:us-east-1:123456789012:security-group/sg-d56489b316c7f98a6",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {},
+    "type": "aws.ec2.security_group"
+  },
+  {
+    "config": {
+      "group_id": "sg-a68fe3b6e98eed610",
+      "ingress": [],
+      "name": "default",
+      "vpc_id": "vpc-38b1648827f3f26db"
+    },
+    "id": "arn:aws:ec2:us-east-1:123456789012:security-group/sg-a68fe3b6e98eed610",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {},
+    "type": "aws.ec2.security_group"
+  },
+  {
+    "config": {
+      "group_id": "sg-2cc5a1cf07a6f1981",
+      "ingress": [
+        {
+          "cidrs": [
+            "0.0.0.0/0"
+          ],
+          "from_port": 22,
+          "ipv6_cidrs": [],
+          "protocol": "tcp",
+          "to_port": 22
+        },
+        {
+          "cidrs": [
+            "0.0.0.0/0"
+          ],
+          "from_port": 5432,
+          "ipv6_cidrs": [],
+          "protocol": "tcp",
+          "to_port": 5432
+        }
+      ],
+      "name": "assay-insecure-open",
+      "vpc_id": "vpc-38b1648827f3f26db"
+    },
+    "id": "arn:aws:ec2:us-east-1:123456789012:security-group/sg-2cc5a1cf07a6f1981",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "aws.ec2.security_group"
+  },
+  {
+    "config": {
+      "attached_instance_ids": [],
+      "encrypted": false,
+      "kms_key_id": null,
+      "volume_id": "vol-6237f436e5bb43feb"
+    },
+    "id": "arn:aws:ec2:us-east-1:123456789012:volume/vol-6237f436e5bb43feb",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "Name": "assay-insecure-data",
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "aws.ec2.volume"
+  },
+  {
+    "config": {
+      "ebs_encryption_by_default": false
+    },
+    "id": "123456789012:us-east-1:aws.ec2.region_settings",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {},
+    "type": "aws.ec2.region_settings"
+  },
+  {
+    "config": {
+      "key_id": "c06a6603-1e4d-4185-94b5-852163293049",
+      "key_spec": "SYMMETRIC_DEFAULT",
+      "manager": "CUSTOMER",
+      "policy": {
+        "Id": "key-default-1",
+        "Statement": [
+          {
+            "Action": "kms:*",
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "arn:aws:iam::123456789012:root"
+            },
+            "Resource": "*",
+            "Sid": "Enable IAM User Permissions"
+          }
+        ],
+        "Version": "2012-10-17"
+      },
+      "rotation_enabled": false,
+      "state": "Enabled"
+    },
+    "id": "arn:aws:kms:us-east-1:123456789012:key/c06a6603-1e4d-4185-94b5-852163293049",
+    "provider": "aws",
+    "region": "us-east-1",
+    "tags": {
+      "Name": "assay-insecure-key",
+      "criticality": "high",
+      "data_sensitivity": "restricted"
+    },
+    "type": "aws.kms.key"
+  },
+  {
+    "config": {
+      "has_logging_multi_region_trail": false,
+      "trail_names": []
+    },
+    "id": "123456789012:global:aws.cloudtrail.account",
+    "provider": "aws",
+    "region": "global",
+    "tags": {},
+    "type": "aws.cloudtrail.account"
+  }
+]

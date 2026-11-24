@@ -1,0 +1,86 @@
+{
+  "synthetic": true,
+  "note": "Synthetic ARM-shaped data for tests. Not exported from any real subscription.",
+  "resources": [
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Storage/storageAccounts/stassayinsecure",
+      "name": "stassayinsecure",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "westeurope",
+      "tags": {
+        "criticality": "high",
+        "data_sensitivity": "confidential"
+      },
+      "properties": {
+        "supportsHttpsTrafficOnly": true,
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": true
+      }
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Storage/storageAccounts/stassayinsecure/blobServices/default/containers/public-assets",
+      "name": "public-assets",
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "tags": {
+        "criticality": "high",
+        "data_sensitivity": "confidential"
+      },
+      "location": "westeurope",
+      "properties": {
+        "publicAccess": "Container"
+      }
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Network/networkSecurityGroups/nsg-assay-insecure",
+      "name": "nsg-assay-insecure",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "location": "westeurope",
+      "tags": {
+        "criticality": "high",
+        "data_sensitivity": "internal"
+      },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "allow-any-any",
+            "properties": {
+              "direction": "Inbound",
+              "access": "Allow",
+              "protocol": "*",
+              "sourceAddressPrefix": "*",
+              "destinationPortRange": "*",
+              "priority": 100
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.KeyVault/vaults/kv-assay-insecure",
+      "name": "kv-assay-insecure",
+      "type": "Microsoft.KeyVault/vaults",
+      "location": "westeurope",
+      "tags": {
+        "criticality": "high",
+        "data_sensitivity": "restricted"
+      },
+      "properties": {
+        "enablePurgeProtection": false,
+        "enableSoftDelete": true
+      }
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Compute/disks/disk-assay-insecure",
+      "name": "disk-assay-insecure",
+      "type": "Microsoft.Compute/disks",
+      "location": "westeurope",
+      "tags": {
+        "criticality": "medium",
+        "data_sensitivity": "confidential"
+      },
+      "properties": {
+        "diskSizeGB": 32
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[
+  {
+    "config": {
+      "allow_blob_public_access": true,
+      "https_only": true,
+      "min_tls_version": "TLS1_2",
+      "name": "stassayinsecure"
+    },
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Storage/storageAccounts/stassayinsecure",
+    "provider": "azure",
+    "region": "westeurope",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "azure.storage.account"
+  },
+  {
+    "config": {
+      "account": "stassayinsecure",
+      "name": "public-assets",
+      "public_access": "Container"
+    },
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Storage/storageAccounts/stassayinsecure/blobServices/default/containers/public-assets",
+    "provider": "azure",
+    "region": "westeurope",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "confidential"
+    },
+    "type": "azure.storage.container"
+  },
+  {
+    "config": {
+      "name": "nsg-assay-insecure",
+      "security_rules": [
+        {
+          "access": "Allow",
+          "destination_port_range": "*",
+          "direction": "Inbound",
+          "name": "allow-any-any",
+          "priority": 100,
+          "protocol": "*",
+          "source_address_prefix": "*"
+        }
+      ]
+    },
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Network/networkSecurityGroups/nsg-assay-insecure",
+    "provider": "azure",
+    "region": "westeurope",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "internal"
+    },
+    "type": "azure.network.nsg"
+  },
+  {
+    "config": {
+      "name": "kv-assay-insecure",
+      "purge_protection": false,
+      "soft_delete": true
+    },
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.KeyVault/vaults/kv-assay-insecure",
+    "provider": "azure",
+    "region": "westeurope",
+    "tags": {
+      "criticality": "high",
+      "data_sensitivity": "restricted"
+    },
+    "type": "azure.keyvault.vault"
+  },
+  {
+    "config": {
+      "encryption_enabled": false,
+      "encryption_type": null,
+      "name": "disk-assay-insecure"
+    },
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-assay-insecure/providers/Microsoft.Compute/disks/disk-assay-insecure",
+    "provider": "azure",
+    "region": "westeurope",
+    "tags": {
+      "criticality": "medium",
+      "data_sensitivity": "confidential"
+    },
+    "type": "azure.compute.disk"
+  }
+]

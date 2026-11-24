@@ -1,0 +1,107 @@
+# Seeded issues in testbed/insecure and testbed/azure-fixtures/insecure. One entry per expected finding.
+# The secure stack and fixtures must produce none. Matching rules for resource_name are in README.md.
+# tests/unit/test_testbed_ground_truth.py checks every entry against the Terraform and the fixtures.
+# expected_finding_count covers the insecure AWS stack only, scanned with --now +120d.
+
+expected_finding_count: 16
+ground_truth:
+  - rule_id: ASSAY-S3-001
+    resource_type: aws.s3.bucket
+    resource_name: assay-insecure-public
+    provider: aws
+    note: "public-read ACL grants READ to AllUsers"
+  - rule_id: ASSAY-S3-002
+    resource_type: aws.s3.bucket
+    resource_name: assay-insecure-public
+    provider: aws
+    note: "no Block Public Access configuration"
+  - rule_id: ASSAY-S3-003
+    resource_type: aws.s3.bucket
+    resource_name: assay-insecure-unencrypted
+    provider: aws
+    note: "no default encryption configuration"
+  - rule_id: ASSAY-S3-004
+    resource_type: aws.s3.bucket
+    resource_name: assay-insecure-unencrypted
+    provider: aws
+    note: "versioning never enabled"
+  - rule_id: ASSAY-S3-005
+    resource_type: aws.s3.bucket
+    resource_name: assay-insecure-unencrypted
+    provider: aws
+    note: "no access logging"
+  - rule_id: ASSAY-EC2-001
+    resource_type: aws.ec2.security_group
+    resource_name: assay-insecure-open
+    provider: aws
+    note: "tcp 22 from 0.0.0.0/0"
+  - rule_id: ASSAY-EC2-003
+    resource_type: aws.ec2.security_group
+    resource_name: assay-insecure-open
+    provider: aws
+    note: "tcp 5432 from 0.0.0.0/0"
+  - rule_id: ASSAY-EC2-005
+    resource_type: aws.ec2.volume
+    resource_name: assay-insecure-data
+    provider: aws
+    note: "encrypted = false; matched by Name tag"
+  - rule_id: ASSAY-EC2-006
+    resource_type: aws.ec2.region_settings
+    resource_name: us-east-1
+    provider: aws
+    note: "EBS encryption by default left off; matched by region"
+  - rule_id: ASSAY-IAM-001
+    resource_type: aws.iam.policy
+    resource_name: assay-insecure-admin-wildcard
+    provider: aws
+    note: "Action * on Resource *; attached to an empty group"
+  - rule_id: ASSAY-IAM-002
+    resource_type: aws.iam.policy
+    resource_name: assay-insecure-s3-wildcard
+    provider: aws
+    note: "Action s3:* on Resource *. The full * policy above counts only as IAM-001"
+  - rule_id: ASSAY-IAM-004
+    resource_type: aws.iam.user
+    resource_name: assay-insecure-dev
+    provider: aws
+    note: "console password with no MFA device"
+  - rule_id: ASSAY-IAM-005
+    resource_type: aws.iam.user
+    resource_name: assay-insecure-dev
+    provider: aws
+    note: "active access key; old once the scan clock runs 120 days past apply (see README)"
+  - rule_id: ASSAY-IAM-008
+    resource_type: aws.iam.account
+    resource_name: account
+    provider: aws
+    note: "no account password policy"
+  - rule_id: ASSAY-LOG-001
+    resource_type: aws.cloudtrail.account
+    resource_name: account
+    provider: aws
+    note: "no trail at all"
+  - rule_id: ASSAY-KMS-001
+    resource_type: aws.kms.key
+    resource_name: assay-insecure-key
+    provider: aws
+    note: "customer managed key with rotation off; matched by Name tag"
+  - rule_id: ASSAY-AZ-STG-001
+    resource_type: azure.storage.container
+    resource_name: public-assets
+    provider: azure
+    note: "publicAccess Container"
+  - rule_id: ASSAY-AZ-NSG-001
+    resource_type: azure.network.nsg
+    resource_name: nsg-assay-insecure
+    provider: azure
+    note: "inbound allow from * to port * on any protocol"
+  - rule_id: ASSAY-AZ-KV-001
+    resource_type: azure.keyvault.vault
+    resource_name: kv-assay-insecure
+    provider: azure
+    note: "enablePurgeProtection false"
+  - rule_id: ASSAY-AZ-DSK-001
+    resource_type: azure.compute.disk
+    resource_name: disk-assay-insecure
+    provider: azure
+    note: "no encryption block and no encryption settings"
