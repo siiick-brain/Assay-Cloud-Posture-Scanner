@@ -1,0 +1,21 @@
+# Seeded issues in fixtures/recorded/trivy/sample-tf/main.tf as designed when the sample was written.
+# This file was typed up after the tool runs, from the design, not from tool output.
+# Stand-in for the Lane B testbed ground truth.
+issues:
+  - {resource: aws_s3_bucket.public_data, rule: ASSAY-S3-001}
+  - {resource: aws_s3_bucket.public_data, rule: ASSAY-S3-002}
+  - {resource: aws_s3_bucket.public_data, rule: ASSAY-S3-003}
+  - {resource: aws_s3_bucket.public_data, rule: ASSAY-S3-004}
+  - {resource: aws_s3_bucket.public_data, rule: ASSAY-S3-005}
+  - {resource: aws_security_group.open_admin, rule: ASSAY-EC2-001}
+  - {resource: aws_security_group.open_admin, rule: ASSAY-EC2-002}
+  - {resource: aws_ebs_volume.plain, rule: ASSAY-EC2-005}
+  - {resource: aws_db_instance.public_db, rule: ASSAY-RDS-001}
+  - {resource: aws_db_instance.public_db, rule: ASSAY-RDS-002}
+  - {resource: aws_iam_policy.star, rule: ASSAY-IAM-001}
+  - {resource: aws_kms_key.no_rotation, rule: ASSAY-KMS-001}
+  - {resource: aws_cloudtrail.single_region, rule: ASSAY-LOG-001}
+  - {resource: aws_cloudtrail.single_region, rule: ASSAY-LOG-002}
+secure_resources:
+  - aws_s3_bucket.private_logs
+  - aws_kms_key.good

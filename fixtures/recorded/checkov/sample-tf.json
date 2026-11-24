@@ -1,0 +1,2076 @@
+{
+  "check_type": "terraform",
+  "results": {
+    "failed_checks": [
+      {
+        "check_id": "CKV_AWS_24",
+        "bc_check_id": null,
+        "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "ingress/[0]/from_port",
+            "ingress/[0]/to_port",
+            "ingress/[0]/cidr_blocks",
+            "ingress/[0]/ipv6_cidr_blocks"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          61,
+          81
+        ],
+        "resource": "aws_security_group.open_admin",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress22",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_25",
+        "bc_check_id": null,
+        "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "ingress/[1]/from_port",
+            "ingress/[1]/to_port",
+            "ingress/[1]/cidr_blocks",
+            "ingress/[1]/ipv6_cidr_blocks"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          61,
+          81
+        ],
+        "resource": "aws_security_group.open_admin",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress3389",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_3",
+        "bc_check_id": null,
+        "check_name": "Ensure all data stored in the EBS is securely encrypted",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "encrypted"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          83,
+          87
+        ],
+        "resource": "aws_ebs_volume.plain",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.EBSEncryption",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_189",
+        "bc_check_id": null,
+        "check_name": "Ensure EBS Volume is encrypted by KMS using a customer managed Key (CMK)",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "kms_key_id"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          83,
+          87
+        ],
+        "resource": "aws_ebs_volume.plain",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.EBSVolumeEncryptedWithCMK",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_129",
+        "bc_check_id": null,
+        "check_name": "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "enabled_cloudwatch_logs_exports/[0]"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.DBInstanceLogging",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_226",
+        "bc_check_id": null,
+        "check_name": "Ensure DB instance gets all minor upgrades automatically",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "auto_minor_version_upgrade"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.DBInstanceMinorUpgrade",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_16",
+        "bc_check_id": null,
+        "check_name": "Ensure all data stored in the RDS is securely encrypted at rest",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "storage_encrypted"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSEncryption",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_118",
+        "bc_check_id": null,
+        "check_name": "Ensure that enhanced monitoring is enabled for Amazon RDS instances",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "monitoring_interval"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSEnhancedMonitorEnabled",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_161",
+        "bc_check_id": null,
+        "check_name": "Ensure RDS database has IAM authentication enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "iam_database_authentication_enabled"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSIAMAuthentication",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_293",
+        "bc_check_id": null,
+        "check_name": "Ensure that AWS database instances have deletion protection enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "deletion_protection"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSInstanceDeletionProtection",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_353",
+        "bc_check_id": null,
+        "check_name": "Ensure that RDS instances have performance insights enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "performance_insights_enabled"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSInstancePerformanceInsights",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_157",
+        "bc_check_id": null,
+        "check_name": "Ensure that RDS instances have Multi-AZ enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "multi_az"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSMultiAZEnabled",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_17",
+        "bc_check_id": null,
+        "check_name": "Ensure all data stored in RDS is not publicly accessible",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "publicly_accessible"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.RDSPubliclyAccessible",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_62",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy",
+            "inline_policy"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMAdminPolicyDocument",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_287",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies does not allow credentials exposure",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMCredentialsExposure",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_288",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies does not allow data exfiltration",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMDataExfiltration",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_289",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies does not allow permissions management / resource exposure without constraints",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMPermissionsManagement",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_286",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies does not allow privilege escalation",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMPrivilegeEscalation",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_63",
+        "bc_check_id": null,
+        "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy",
+            "inline_policy"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMStarActionPolicyDocument",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_355",
+        "bc_check_id": null,
+        "check_name": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMStarResourcePolicyDocument",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_290",
+        "bc_check_id": null,
+        "check_name": "Ensure IAM policies does not allow write access without constraints",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "policy/Statement/[0]/Action"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.IAMWriteAccess",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_7",
+        "bc_check_id": null,
+        "check_name": "Ensure rotation for customer created CMKs is enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "enable_key_rotation"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          114,
+          117
+        ],
+        "resource": "aws_kms_key.no_rotation",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.KMSRotation",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_252",
+        "bc_check_id": null,
+        "check_name": "Ensure CloudTrail defines an SNS Topic",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "sns_topic_name"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          124,
+          129
+        ],
+        "resource": "aws_cloudtrail.single_region",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.CloudtrailDefinesSNSTopic",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_35",
+        "bc_check_id": null,
+        "check_name": "Ensure CloudTrail logs are encrypted at rest using KMS CMKs",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "kms_key_id"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          124,
+          129
+        ],
+        "resource": "aws_cloudtrail.single_region",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.CloudtrailEncryptionWithCMK",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_36",
+        "bc_check_id": null,
+        "check_name": "Ensure CloudTrail log file validation is enabled",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "enable_log_file_validation"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          124,
+          129
+        ],
+        "resource": "aws_cloudtrail.single_region",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.CloudtrailLogValidation",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_67",
+        "bc_check_id": null,
+        "check_name": "Ensure CloudTrail is enabled in all Regions",
+        "check_result": {
+          "result": "FAILED",
+          "evaluated_keys": [
+            "is_multi_region_trail"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          124,
+          129
+        ],
+        "resource": "aws_cloudtrail.single_region",
+        "evaluations": null,
+        "check_class": "checkov.terraform.checks.resource.aws.CloudtrailMultiRegion",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_10",
+        "bc_check_id": null,
+        "check_name": "Ensure CloudTrail trails are integrated with CloudWatch Logs",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_cloudtrail": {
+              "single_region": {
+                "__end_line__": 129,
+                "__start_line__": 124,
+                "enable_log_file_validation": [
+                  false
+                ],
+                "is_multi_region_trail": [
+                  false
+                ],
+                "name": [
+                  "assay-sample-trail"
+                ],
+                "s3_bucket_name": [
+                  "aws_s3_bucket.private_logs.id"
+                ],
+                "__address__": "aws_cloudtrail.single_region",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "cloud_watch_logs_group_arn",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          124,
+          129
+        ],
+        "resource": "aws_cloudtrail.single_region",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_30",
+        "bc_check_id": null,
+        "check_name": "Ensure Postgres RDS as aws_db_instance has Query Logging enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_db_instance": {
+              "public_db": {
+                "__end_line__": 99,
+                "__start_line__": 89,
+                "allocated_storage": [
+                  20
+                ],
+                "engine": [
+                  "postgres"
+                ],
+                "identifier": [
+                  "assay-sample-db"
+                ],
+                "instance_class": [
+                  "db.t3.micro"
+                ],
+                "password": [
+                  "REDACTED_SECRET"
+                ],
+                "publicly_accessible": [
+                  true
+                ],
+                "skip_final_snapshot": [
+                  true
+                ],
+                "storage_encrypted": [
+                  false
+                ],
+                "username": [
+                  "app"
+                ],
+                "__address__": "aws_db_instance.public_db",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "parameter/*/name",
+            "engine",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_60",
+        "bc_check_id": null,
+        "check_name": "Ensure RDS instance with copy tags to snapshots is enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_db_instance": {
+              "public_db": {
+                "__end_line__": 99,
+                "__start_line__": 89,
+                "allocated_storage": [
+                  20
+                ],
+                "engine": [
+                  "postgres"
+                ],
+                "identifier": [
+                  "assay-sample-db"
+                ],
+                "instance_class": [
+                  "db.t3.micro"
+                ],
+                "password": [
+                  "REDACTED_SECRET"
+                ],
+                "publicly_accessible": [
+                  true
+                ],
+                "skip_final_snapshot": [
+                  true
+                ],
+                "storage_encrypted": [
+                  false
+                ],
+                "username": [
+                  "app"
+                ],
+                "__address__": "aws_db_instance.public_db",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "copy_tags_to_snapshot",
+            "engine"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          89,
+          99
+        ],
+        "resource": "aws_db_instance.public_db",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_62",
+        "bc_check_id": null,
+        "check_name": "Ensure S3 buckets should have event notifications enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_62",
+        "bc_check_id": null,
+        "check_name": "Ensure S3 buckets should have event notifications enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "private_logs": {
+                "__end_line__": 28,
+                "__start_line__": 26,
+                "bucket": [
+                  "assay-sample-private-logs"
+                ],
+                "__address__": "aws_s3_bucket.private_logs",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          26,
+          28
+        ],
+        "resource": "aws_s3_bucket.private_logs",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_64",
+        "bc_check_id": null,
+        "check_name": "Ensure KMS key Policy is defined",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_kms_key": {
+              "no_rotation": {
+                "__end_line__": 117,
+                "__start_line__": 114,
+                "description": [
+                  "Sample key without rotation"
+                ],
+                "enable_key_rotation": [
+                  false
+                ],
+                "__address__": "aws_kms_key.no_rotation",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "policy",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          114,
+          117
+        ],
+        "resource": "aws_kms_key.no_rotation",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_64",
+        "bc_check_id": null,
+        "check_name": "Ensure KMS key Policy is defined",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_kms_key": {
+              "good": {
+                "__end_line__": 122,
+                "__start_line__": 119,
+                "description": [
+                  "Sample key with rotation"
+                ],
+                "enable_key_rotation": [
+                  true
+                ],
+                "__address__": "aws_kms_key.good",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "policy",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          119,
+          122
+        ],
+        "resource": "aws_kms_key.good",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_5",
+        "bc_check_id": null,
+        "check_name": "Ensure that Security Groups are attached to another resource",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_security_group": {
+              "open_admin": {
+                "__end_line__": 81,
+                "__start_line__": 61,
+                "description": [
+                  "Sample group with admin ports open"
+                ],
+                "ingress": [
+                  {
+                    "cidr_blocks": [
+                      [
+                        "0.0.0.0/0"
+                      ]
+                    ],
+                    "description": [
+                      "ssh"
+                    ],
+                    "from_port": [
+                      22
+                    ],
+                    "protocol": [
+                      "tcp"
+                    ],
+                    "to_port": [
+                      22
+                    ]
+                  },
+                  {
+                    "cidr_blocks": [
+                      [
+                        "0.0.0.0/0"
+                      ]
+                    ],
+                    "description": [
+                      "rdp"
+                    ],
+                    "from_port": [
+                      3389
+                    ],
+                    "protocol": [
+                      "tcp"
+                    ],
+                    "to_port": [
+                      3389
+                    ]
+                  }
+                ],
+                "name": [
+                  "open-admin"
+                ],
+                "vpc_id": [
+                  "vpc-0sample"
+                ],
+                "__address__": "aws_security_group.open_admin",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type",
+            "networking"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          61,
+          81
+        ],
+        "resource": "aws_security_group.open_admin",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_18",
+        "bc_check_id": null,
+        "check_name": "Ensure the S3 bucket has access logging enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type",
+            "logging"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_20",
+        "bc_check_id": null,
+        "check_name": "S3 Bucket has an ACL defined which allows public READ access.",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "access_control_policy/grant",
+            "acl",
+            "access_control_policy",
+            "access_control_policy/grant/*/grantee/uri",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_6",
+        "bc_check_id": null,
+        "check_name": "Ensure that S3 bucket has a Public Access block",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type",
+            "block_public_policy",
+            "block_public_acls"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_61",
+        "bc_check_id": null,
+        "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type",
+            "lifecycle_rule"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_61",
+        "bc_check_id": null,
+        "check_name": "Ensure that an S3 bucket has a lifecycle configuration",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "private_logs": {
+                "__end_line__": 28,
+                "__start_line__": 26,
+                "bucket": [
+                  "assay-sample-private-logs"
+                ],
+                "__address__": "aws_s3_bucket.private_logs",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "resource_type",
+            "lifecycle_rule"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          26,
+          28
+        ],
+        "resource": "aws_s3_bucket.private_logs",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_145",
+        "bc_check_id": null,
+        "check_name": "Ensure that S3 buckets are encrypted with KMS by default",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "server_side_encryption_configuration/rule/apply_server_side_encryption_by_default/sse_algorithm",
+            "resource_type",
+            "rule/apply_server_side_encryption_by_default/sse_algorithm"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_144",
+        "bc_check_id": null,
+        "check_name": "Ensure that S3 bucket has cross-region replication enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "rule/*/status",
+            "replication_configuration/rules/*/status",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_144",
+        "bc_check_id": null,
+        "check_name": "Ensure that S3 bucket has cross-region replication enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "private_logs": {
+                "__end_line__": 28,
+                "__start_line__": 26,
+                "bucket": [
+                  "assay-sample-private-logs"
+                ],
+                "__address__": "aws_s3_bucket.private_logs",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "rule/*/status",
+            "replication_configuration/rules/*/status",
+            "resource_type"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          26,
+          28
+        ],
+        "resource": "aws_s3_bucket.private_logs",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV_AWS_21",
+        "bc_check_id": null,
+        "check_name": "Ensure all data stored in the S3 bucket have versioning enabled",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_s3_bucket": {
+              "public_data": {
+                "__end_line__": 19,
+                "__start_line__": 17,
+                "bucket": [
+                  "assay-sample-public-data"
+                ],
+                "__address__": "aws_s3_bucket.public_data",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "versioning/enabled",
+            "resource_type",
+            "versioning_configuration/status"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          17,
+          19
+        ],
+        "resource": "aws_s3_bucket.public_data",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      },
+      {
+        "check_id": "CKV2_AWS_40",
+        "bc_check_id": null,
+        "check_name": "Ensure AWS IAM policy does not allow full IAM privileges",
+        "check_result": {
+          "result": "FAILED",
+          "entity": {
+            "aws_iam_policy": {
+              "star": {
+                "__end_line__": 112,
+                "__start_line__": 106,
+                "name": [
+                  "assay-sample-star"
+                ],
+                "policy": [
+                  {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": "*",
+                        "Resource": "*"
+                      }
+                    ]
+                  }
+                ],
+                "__address__": "aws_iam_policy.star",
+                "__provider_address__": "aws.default"
+              }
+            }
+          },
+          "evaluated_keys": [
+            "statement[?(@/effect == Allow)]/actions[*]",
+            "inline_policy/Statement[?(@/Effect == Allow)]/Action[*]",
+            "policy/Statement[?(@/Effect == Allow)]/Action[*]"
+          ]
+        },
+        "code_block": null,
+        "file_path": "\\main.tf",
+        "file_abs_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf",
+        "repo_file_path": "/fixtures/recorded/trivy/sample-tf/main.tf",
+        "file_line_range": [
+          106,
+          112
+        ],
+        "resource": "aws_iam_policy.star",
+        "evaluations": null,
+        "check_class": "checkov.common.graph.checks_infra.base_check",
+        "fixed_definition": null,
+        "entity_tags": null,
+        "caller_file_path": null,
+        "caller_file_line_range": null,
+        "resource_address": null,
+        "severity": null,
+        "bc_category": null,
+        "benchmarks": {},
+        "description": null,
+        "short_description": null,
+        "vulnerability_details": null,
+        "connected_node": null,
+        "guideline": null,
+        "details": [],
+        "check_len": null,
+        "definition_context_file_path": "C:\\Users\\REDACTED_USER\\Desktop\\PROJECTS\\Assay Cloud Posture Scanner\\.worktrees\\lane-df\\fixtures\\recorded\\trivy\\sample-tf\\main.tf"
+      }
+    ]
+  },
+  "summary": {
+    "passed": 34,
+    "failed": 44,
+    "skipped": 0,
+    "parsing_errors": 0,
+    "resource_count": 14,
+    "checkov_version": "3.4.7"
+  }
+}
