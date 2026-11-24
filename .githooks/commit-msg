@@ -1,0 +1,32 @@
+#!/bin/sh
+# Rejects messages that break the commit rules in docs/STYLE.md.
+msg_file="$1"
+root=$(cd "$(dirname "$0")/.." && pwd)
+fail() { echo "commit-msg: $1" >&2; exit 1; }
+
+body=$(grep -v '^#' "$msg_file")
+title=$(printf '%s\n' "$body" | sed -n '1p')
+
+[ -n "$title" ] || fail "empty title"
+[ ${#title} -lt 72 ] || fail "title must be under 72 characters"
+case "$title" in *.) fail "title must not end with a period" ;; esac
+
+first=$(printf '%s' "$title" | awk '{print $1}')
+case "$first" in
+  Embed|Seed|Shed|Feed|Speed|Need|Bring|Ping|String) ;;
+  *ed|*ing) fail "title must be imperative (\"Add\", not \"$first\")" ;;
+esac
+
+trailers=$(printf '%s\n' "$body" | git interpret-trailers --parse)
+[ -z "$trailers" ] || fail "trailers are not allowed: $trailers"
+
+printf '%s' "$body" | grep -q "$(printf '\342\200\224')" && fail "em dash found"
+while IFS= read -r word; do
+  [ -n "$word" ] || continue
+  printf '%s' "$body" | grep -qiw -- "$word" && fail "banned phrase: $word"
+done < "$root/scripts/style-banned.txt"
+
+want=$(cat "$root/.githooks/author.txt")
+got=$(git var GIT_AUTHOR_IDENT | sed 's/ [0-9]* [-+][0-9]*$//')
+[ "$got" = "$want" ] || fail "author is '$got', expected '$want'"
+exit 0

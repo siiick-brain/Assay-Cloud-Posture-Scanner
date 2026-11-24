@@ -1,0 +1,9 @@
+#!/bin/sh
+# Blocks staged secrets. Skips quietly when gitleaks is not installed.
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --pre-commit --staged --no-banner --redact . >/dev/null 2>&1 || {
+    echo "pre-commit: gitleaks found a secret in staged changes" >&2
+    exit 1
+  }
+fi
+exit 0
