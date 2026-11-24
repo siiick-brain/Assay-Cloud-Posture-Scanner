@@ -72,6 +72,9 @@ All numbers come from real runs on 2026-11-24 (docs/evaluation.md).
 | Tests | 485, all pass |
 | Coverage | 98.4 percent |
 | ruff and mypy strict | clean |
+| GitHub Actions | ci and security workflows green |
+
+![CI run with every job green](docs/images/ci-green.png)
 
 ![Seeded issues found per tool](docs/images/tool-comparison.png)
 

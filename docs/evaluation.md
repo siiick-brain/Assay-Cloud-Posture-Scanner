@@ -54,6 +54,14 @@ Recorded against Moto 5.2.6 on 2026-11-24 (docs/demo/remediation-demo.md). Each 
 
 All 16 closures carry verification_status verified because the rescans ran in emulator mode. ASSAY-EC2-001 went from verified_closed to reopened and back to verified_closed. The IAM step removes the console login instead of enrolling MFA because Terraform cannot supply MFA codes. G22: Met.
 
+## Public pages
+
+Captured from the public repository on 2026-11-24 with Playwright, no login (scripts/visuals/capture_github.py).
+
+- ci workflow run with every job green: ![CI green](images/ci-green.png)
+- Repository front page: ![Repository front page](images/readme-top.png)
+- Contributors graph: ![Contributors](images/contributors.png)
+
 ## Limits found during evaluation
 
 - CIS AWS Foundations identifiers were written from memory of v3.0.0 and still need a check against a licensed copy.
