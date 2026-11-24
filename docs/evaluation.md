@@ -21,6 +21,7 @@ Every number here comes from a real run on 2026-11-24 against the Moto emulator,
 | G13 mapped identifiers exist locally | 100 percent | 100 percent | Met | tests/unit/test_mapping*.py |
 | G14 allowlist write block | passes | CreateBucket, PutBucketAcl and GetSecretValue blocked before signing | Met | tests/unit/test_collectors_aws*.py |
 | G15 static allowlist check | no unlisted operation | 31 calls checked, 0 unlisted | Met | scripts/check_allowlist.py |
+| G23 README images | references, sizes and OCR pass | 8 images, OCR with Tesseract 5.4.0 finds no private strings | Met | scripts/check-readme-images.ps1 -RequireOcr |
 
 SARIF is checked for structure only because the full SARIF 2.1.0 schema is not stored offline. That row counts as Met for structure and Not verified for full schema validation.
 
