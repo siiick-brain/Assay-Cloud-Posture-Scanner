@@ -1,0 +1,176 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  UV_VERSION: "0.13.9"
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  lint:
+    name: lint (ruff)
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --locked
+      - run: uv run ruff check . --output-format github
+
+  types:
+    name: types (mypy strict)
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --locked
+      - run: uv run mypy
+
+  tests:
+    name: tests (coverage gate 85)
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --locked
+      # Emulator and Docker tests run in their own job, so skip them here.
+      - run: >-
+          uv run pytest -q --tb=short -m "not emulator and not docker"
+          --cov --cov-report=term --cov-report=xml --cov-fail-under=85
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: coverage-xml
+          path: coverage.xml
+          if-no-files-found: ignore
+          retention-days: 14
+
+  emulator:
+    name: emulator integration (Moto)
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    services:
+      moto:
+        # motoserver/moto 5.2.6, pinned by manifest digest.
+        image: motoserver/moto@sha256:344e076f31ad1f5ff1ec4492f741e7d42911d1c7a1ef9b1590f56c340b968513
+        ports:
+          - 5000:5000
+    env:
+      # Fake values. Moto accepts any key and nothing here reaches AWS.
+      AWS_ACCESS_KEY_ID: testing
+      AWS_SECRET_ACCESS_KEY: testing
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ENDPOINT_URL: http://localhost:5000
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --locked
+      - name: Wait for Moto
+        run: |
+          for _ in $(seq 1 30); do
+            curl -fsS http://localhost:5000/moto-api/ >/dev/null && exit 0
+            sleep 2
+          done
+          echo "Moto did not start" >&2
+          exit 1
+      - run: uv run pytest -q --tb=short -m emulator
+
+  allowlist:
+    name: allowlist static check
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --locked
+      - run: uv run python scripts/check_allowlist.py
+
+  style:
+    name: style and authorship
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history so every commit in the push or PR range is available.
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check docs, README, code comments and rules
+        shell: pwsh
+        run: |
+          $paths = @('docs', 'README.md', 'CHANGELOG.md', 'cspm', 'rules') | Where-Object { Test-Path $_ }
+          pwsh -NoProfile -File scripts/check-style.ps1 @paths
+      - name: Check commit messages and authors in range
+        shell: bash
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "pull_request" ]; then
+            range="$PR_BASE..HEAD"
+          elif [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            # New branch push: there is no previous tip, so check the last commit only.
+            range="$HEAD_SHA~1..$HEAD_SHA"
+          else
+            range="$BEFORE..$HEAD_SHA"
+          fi
+          want=$(cat .githooks/author.txt)
+          status=0
+          for sha in $(git rev-list --no-merges "$range"); do
+            author=$(git log -1 --format='%an <%ae>' "$sha")
+            if [ "$author" != "$want" ]; then
+              echo "::error::$sha author is '$author', expected '$want'"
+              status=1
+            fi
+            msg=$(git log -1 --format=%B "$sha")
+            if ! pwsh -NoProfile -File scripts/check-style.ps1 -CommitMessage "$msg"; then
+              echo "::error::$sha commit message breaks the style rules"
+              status=1
+            fi
+          done
+          exit "$status"

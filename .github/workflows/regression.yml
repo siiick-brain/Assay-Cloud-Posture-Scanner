@@ -1,0 +1,117 @@
+name: testbed regression
+
+# Weekly oracle: the secure testbed must give zero findings and the insecure
+# testbed must give exactly the count recorded in testbed/ground-truth.yaml.
+on:
+  schedule:
+    - cron: "41 3 * * 2"
+  workflow_dispatch:
+
+permissions: {}
+
+env:
+  UV_VERSION: "0.13.9"
+  PYTHON_VERSION: "3.12"
+  TERRAFORM_VERSION: "1.17.2"
+
+jobs:
+  regression:
+    name: testbed regression scan
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        stack: [secure, insecure]
+    services:
+      moto:
+        # motoserver/moto 5.2.6, pinned by manifest digest.
+        image: motoserver/moto@sha256:344e076f31ad1f5ff1ec4492f741e7d42911d1c7a1ef9b1590f56c340b968513
+        ports:
+          - 5000:5000
+    env:
+      # Fake values. Moto accepts any key and nothing here reaches AWS.
+      AWS_ACCESS_KEY_ID: testing
+      AWS_SECRET_ACCESS_KEY: testing
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ENDPOINT_URL: http://localhost:5000
+      STACK: ${{ matrix.stack }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+          terraform_wrapper: false
+      - run: uv sync --locked
+      - name: Wait for Moto
+        run: |
+          for _ in $(seq 1 30); do
+            curl -fsS http://localhost:5000/moto-api/ >/dev/null && exit 0
+            sleep 2
+          done
+          echo "Moto did not start" >&2
+          exit 1
+      - name: Apply testbed stack to the emulator
+        working-directory: testbed/${{ matrix.stack }}
+        run: |
+          terraform init -input=false
+          terraform apply -input=false -auto-approve
+      - name: Scan the emulator
+        run: uv run cspm scan --provider aws --mode emulator --now +120d --out "out/$STACK"
+      - name: Compare finding count with ground truth
+        shell: uv run python {0}
+        run: |
+          import json
+          import os
+          import pathlib
+          import sys
+
+          import yaml
+
+          stack = os.environ["STACK"]
+          reports = sorted(pathlib.Path("out", stack).rglob("*.json"))
+          report = None
+          for path in reports:
+              data = json.loads(path.read_text())
+              if isinstance(data, dict) and "findings" in data:
+                  report = data
+                  break
+          if report is None:
+              sys.exit(f"no findings report under out/{stack}")
+          got = sum(1 for f in report["findings"] if f.get("source", "assay") == "assay" and f.get("provider") == "aws")
+
+          if stack == "secure":
+              want = 0
+          else:
+              truth = yaml.safe_load(pathlib.Path("testbed/ground-truth.yaml").read_text())
+              # Prefer an explicit count. Otherwise count AWS entries that name a rule.
+              want = truth.get("expected_finding_count") if isinstance(truth, dict) else None
+              if want is None:
+                  def walk(node):
+                      if isinstance(node, dict):
+                          if "rule_id" in node and node.get("provider", "aws") == "aws":
+                              yield node
+                          for v in node.values():
+                              yield from walk(v)
+                      elif isinstance(node, list):
+                          for v in node:
+                              yield from walk(v)
+                  want = sum(1 for _ in walk(truth))
+
+          print(f"{stack}: {got} findings, expected {want}")
+          if got != want:
+              sys.exit(1)
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: regression-${{ matrix.stack }}
+          path: out/${{ matrix.stack }}
+          if-no-files-found: ignore
+          retention-days: 14
