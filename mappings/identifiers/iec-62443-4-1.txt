@@ -1,0 +1,48 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+SM-1
+SM-2
+SM-3
+SM-4
+SM-5
+SM-6
+SM-7
+SM-8
+SM-9
+SM-10
+SM-11
+SM-12
+SM-13
+SR-1
+SR-2
+SR-3
+SR-4
+SR-5
+SD-1
+SD-2
+SD-3
+SD-4 proven design practices
+SI-1
+SI-2
+SVV-1
+SVV-2
+SVV-3
+SVV-4
+SVV-5
+DM-1
+DM-2
+DM-3
+DM-4
+DM-5
+DM-6
+SUM-1
+SUM-2
+SUM-3
+SUM-4
+SUM-5
+SG-1
+SG-2 layered environment defense
+SG-3 hardening advice
+SG-4
+SG-5 operating advice
+SG-6 account handling advice
+SG-7

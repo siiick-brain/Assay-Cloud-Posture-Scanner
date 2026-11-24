@@ -1,0 +1,111 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: soc2
+name: SOC 2 Trust Services Criteria
+family: soc2
+note: Criteria identifiers from the 2017 criteria with 2022 points of focus.
+mappings:
+  ASSAY-S3-001:
+  - control: CC6.1
+    rationale: Logical access safeguards are missing when storage answers anonymous requests.
+  - control: C1.1
+    rationale: Confidential data cannot stay confidential in publicly readable storage.
+  ASSAY-S3-002:
+  - control: CC6.1
+    rationale: Logical access safeguards are missing when storage answers anonymous requests.
+  - control: C1.1
+    rationale: Confidential data cannot stay confidential in publicly readable storage.
+  ASSAY-S3-003:
+  - control: CC6.1
+    rationale: Encryption at rest is one of the logical access safeguards expected for stored data.
+  ASSAY-S3-004:
+  - control: A1.2
+    rationale: Recovery depends on retained data that is not there.
+  ASSAY-S3-005:
+  - control: CC7.2
+    rationale: Anomalies cannot be detected without activity records.
+  ASSAY-EC2-001:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-EC2-002:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-EC2-003:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-EC2-004:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-EC2-005:
+  - control: CC6.1
+    rationale: Encryption at rest is one of the logical access safeguards expected for stored data.
+  ASSAY-EC2-006:
+  - control: CC6.1
+    rationale: Encryption at rest is one of the logical access safeguards expected for stored data.
+  ASSAY-RDS-001:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-RDS-002:
+  - control: CC6.1
+    rationale: Encryption at rest is one of the logical access safeguards expected for stored data.
+  ASSAY-IAM-001:
+  - control: CC6.3
+    rationale: Access is not sized to role or duty.
+  ASSAY-IAM-002:
+  - control: CC6.3
+    rationale: Access is not sized to role or duty.
+  ASSAY-IAM-003:
+  - control: CC6.3
+    rationale: Access is not sized to role or duty.
+  ASSAY-IAM-004:
+  - control: CC6.1
+    rationale: Strong authentication is part of logical access safeguards.
+  ASSAY-IAM-005:
+  - control: CC6.1
+    rationale: Stale credentials weaken logical access safeguards.
+  ASSAY-IAM-006:
+  - control: CC6.1
+    rationale: The policy lacks a logical access restriction on who may act.
+  ASSAY-IAM-007:
+  - control: CC6.1
+    rationale: Root keys sit outside every access safeguard.
+  ASSAY-IAM-008:
+  - control: CC6.1
+    rationale: Password strength is part of the access safeguards.
+  ASSAY-LOG-001:
+  - control: CC7.2
+    rationale: Anomalies cannot be detected without activity records.
+  ASSAY-LOG-002:
+  - control: CC7.2
+    rationale: Monitoring relies on logs nobody can prove are unchanged.
+  ASSAY-KMS-001:
+  - control: CC6.1
+    rationale: Key rotation supports the encryption safeguards.
+  ASSAY-KMS-002:
+  - control: CC6.1
+    rationale: The policy lacks a logical access restriction on who may act.
+  ASSAY-SEC-001:
+  - control: CC6.1
+    rationale: Stale credentials weaken logical access safeguards.
+  ASSAY-ACM-001:
+  - control: CC6.7
+    rationale: Data in transit protection fails when the certificate lapses.
+  ASSAY-ACM-002:
+  - control: CC6.7
+    rationale: Data moving to and from the service is not protected.
+  ASSAY-AZ-STG-001:
+  - control: CC6.1
+    rationale: Logical access safeguards are missing when storage answers anonymous requests.
+  - control: C1.1
+    rationale: Confidential data cannot stay confidential in publicly readable storage.
+  ASSAY-AZ-STG-002:
+  - control: CC6.7
+    rationale: Data moving to and from the service is not protected.
+  ASSAY-AZ-NSG-001:
+  - control: CC6.6
+    rationale: The boundary does not restrict access from outside sources.
+  ASSAY-AZ-KV-001:
+  - control: A1.2
+    rationale: Recovery depends on retained data that is not there.
+  ASSAY-AZ-DSK-001:
+  - control: CC6.1
+    rationale: Encryption at rest is one of the logical access safeguards expected for stored data.

@@ -1,0 +1,23 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+I.1
+I.2(a)
+I.2(b) secure default setup
+I.2(c)
+I.2(d) stop unauthorised access
+I.2(e) keep data confidential
+I.2(f) keep data intact
+I.2(g)
+I.2(h) stay available
+I.2(i)
+I.2(j) small attack surface
+I.2(k)
+I.2(l) record internal activity
+I.2(m)
+II.1
+II.2
+II.3
+II.4
+II.5
+II.6
+II.7
+II.8

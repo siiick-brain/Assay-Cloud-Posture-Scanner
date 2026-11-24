@@ -1,0 +1,77 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: cis-aws-foundations
+name: CIS AWS Foundations Benchmark
+family: cis-aws
+note: Identifiers only, numbered as in benchmark v3.0.0 as the authors understand it. No benchmark text is reproduced; check numbers against your licensed copy.
+mappings:
+  ASSAY-S3-001:
+  - control: 2.1.4
+    rationale: Block Public Access is the benchmark's control for this; the rule checks effective public grants.
+  ASSAY-S3-002:
+  - control: 2.1.4
+    rationale: The benchmark item covers Block Public Access settings on buckets.
+  ASSAY-S3-004:
+  - control: 2.1.2
+    rationale: MFA delete requires versioning, so this is a precondition for that item.
+  ASSAY-S3-005:
+  - control: '3.4'
+    rationale: The benchmark asks for access logging on the trail bucket; the rule checks every bucket.
+  ASSAY-EC2-001:
+  - control: '5.2'
+    rationale: Port 22 open to 0.0.0.0/0 is a remote admin port exposed to IPv4.
+  - control: '5.3'
+    rationale: The same check covers ::/0 for IPv6.
+  ASSAY-EC2-002:
+  - control: '5.2'
+    rationale: Port 3389 open to 0.0.0.0/0 is a remote admin port exposed to IPv4.
+  - control: '5.3'
+    rationale: The same check covers ::/0 for IPv6.
+  ASSAY-EC2-004:
+  - control: '5.2'
+    rationale: All ports open includes the remote admin ports over IPv4.
+  - control: '5.3'
+    rationale: All ports open includes the remote admin ports over IPv6.
+  ASSAY-EC2-005:
+  - control: 2.2.1
+    rationale: The benchmark item targets EBS encryption; this checks existing volumes.
+  ASSAY-EC2-006:
+  - control: 2.2.1
+    rationale: 'Direct match: EBS encryption by default per region.'
+  ASSAY-RDS-001:
+  - control: 2.3.3
+    rationale: 'Direct match: database instances should not be publicly reachable.'
+  ASSAY-RDS-002:
+  - control: 2.3.1
+    rationale: 'Direct match: database storage encryption at rest.'
+  ASSAY-IAM-001:
+  - control: '1.16'
+    rationale: 'Direct match: no policy granting every action on every resource.'
+  ASSAY-IAM-003:
+  - control: '1.15'
+    rationale: Permissions should come through groups, not direct user attachment.
+  - control: '1.16'
+    rationale: Admin rights on a user are the full privilege case.
+  ASSAY-IAM-004:
+  - control: '1.10'
+    rationale: 'Direct match: MFA for every user with a console password.'
+  ASSAY-IAM-005:
+  - control: '1.14'
+    rationale: 'Direct match: rotate access keys within 90 days.'
+  ASSAY-IAM-007:
+  - control: '1.4'
+    rationale: 'Direct match: no access keys on the root user.'
+  ASSAY-IAM-008:
+  - control: '1.8'
+    rationale: 'Direct match: password length of at least 14.'
+  ASSAY-LOG-001:
+  - control: '3.1'
+    rationale: 'Direct match: CloudTrail on in every region.'
+  ASSAY-LOG-002:
+  - control: '3.2'
+    rationale: 'Direct match: CloudTrail log file validation.'
+  ASSAY-KMS-001:
+  - control: '3.6'
+    rationale: 'Direct match: rotation for customer managed symmetric keys.'
+  ASSAY-ACM-001:
+  - control: '1.19'
+    rationale: The benchmark asks to remove expired certificates; this warns before expiry.

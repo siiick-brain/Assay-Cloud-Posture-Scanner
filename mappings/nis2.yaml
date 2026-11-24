@@ -1,0 +1,121 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: nis2
+name: NIS2 Directive Article 21(2)
+family: nis2
+note: Points (a) to (j) of Article 21(2).
+mappings:
+  ASSAY-S3-001:
+  - control: 21(2)(i)
+    rationale: Access control policy should keep storage closed to unknown parties.
+  ASSAY-S3-002:
+  - control: 21(2)(i)
+    rationale: Access control policy should keep storage closed to unknown parties.
+  ASSAY-S3-003:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover data at rest.
+  ASSAY-S3-004:
+  - control: 21(2)(c)
+    rationale: Backup management is part of continuity measures.
+  ASSAY-S3-005:
+  - control: 21(2)(b)
+    rationale: Incident handling depends on logs to reconstruct what happened.
+  ASSAY-EC2-001:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-EC2-002:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-EC2-003:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-EC2-004:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-EC2-005:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover data at rest.
+  ASSAY-EC2-006:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover data at rest.
+  ASSAY-RDS-001:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-RDS-002:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover data at rest.
+  ASSAY-IAM-001:
+  - control: 21(2)(i)
+    rationale: Access control policy should restrict privileged actions.
+  ASSAY-IAM-002:
+  - control: 21(2)(i)
+    rationale: Access control policy should restrict privileged actions.
+  ASSAY-IAM-003:
+  - control: 21(2)(i)
+    rationale: Access control policy should restrict privileged actions.
+  ASSAY-IAM-004:
+  - control: 21(2)(j)
+    rationale: Multi-factor authentication is listed directly in this point.
+  ASSAY-IAM-005:
+  - control: 21(2)(i)
+    rationale: Access control covers keeping credentials current.
+  ASSAY-IAM-006:
+  - control: 21(2)(i)
+    rationale: Access control should limit use to known parties.
+  ASSAY-IAM-007:
+  - control: 21(2)(i)
+    rationale: Access control should remove unneeded privileged credentials.
+  ASSAY-IAM-008:
+  - control: 21(2)(g)
+    rationale: Sound password practice is basic cyber hygiene.
+  ASSAY-LOG-001:
+  - control: 21(2)(b)
+    rationale: Incident handling depends on logs to reconstruct what happened.
+  ASSAY-LOG-002:
+  - control: 21(2)(b)
+    rationale: Investigators need trustworthy logs during an incident.
+  ASSAY-KMS-001:
+  - control: 21(2)(h)
+    rationale: Cryptography policy should cover key lifecycle.
+  ASSAY-KMS-002:
+  - control: 21(2)(i)
+    rationale: Access control should limit use to known parties.
+  ASSAY-SEC-001:
+  - control: 21(2)(i)
+    rationale: Access control covers keeping credentials current.
+  ASSAY-ACM-001:
+  - control: 21(2)(h)
+    rationale: Cryptography policy should cover certificate renewal.
+  ASSAY-ACM-002:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover traffic.
+  - control: 21(2)(j)
+    rationale: Secured communications are listed in this point.
+  ASSAY-AZ-STG-001:
+  - control: 21(2)(i)
+    rationale: Access control policy should keep storage closed to unknown parties.
+  ASSAY-AZ-STG-002:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover traffic.
+  - control: 21(2)(j)
+    rationale: Secured communications are listed in this point.
+  ASSAY-AZ-NSG-001:
+  - control: 21(2)(g)
+    rationale: Closing unneeded internet exposure is basic cyber hygiene.
+  - control: 21(2)(i)
+    rationale: Network access is not limited to known parties.
+  ASSAY-AZ-KV-001:
+  - control: 21(2)(c)
+    rationale: Backup management is part of continuity measures.
+  ASSAY-AZ-DSK-001:
+  - control: 21(2)(h)
+    rationale: Encryption policy should cover data at rest.

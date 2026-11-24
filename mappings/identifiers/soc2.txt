@@ -1,0 +1,62 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+CC1.1
+CC1.2
+CC1.3
+CC1.4
+CC1.5
+CC2.1
+CC2.2
+CC2.3
+CC3.1
+CC3.2
+CC3.3
+CC3.4
+CC4.1
+CC4.2
+CC5.1
+CC5.2
+CC5.3
+CC6.1 logical access safeguards
+CC6.2 user provisioning
+CC6.3 role based access
+CC6.4
+CC6.5
+CC6.6 outside threats at boundary
+CC6.7 data movement protection
+CC6.8
+CC7.1
+CC7.2 anomaly monitoring
+CC7.3
+CC7.4
+CC7.5
+CC8.1
+CC9.1
+CC9.2
+A1.1
+A1.2 recovery infrastructure
+A1.3
+C1.1 confidential data handling
+C1.2
+PI1.1
+PI1.2
+PI1.3
+PI1.4
+PI1.5
+P1.1
+P2.1
+P3.1
+P3.2
+P4.1
+P4.2
+P4.3
+P5.1
+P5.2
+P6.1
+P6.2
+P6.3
+P6.4
+P6.5
+P6.6
+P6.7
+P7.1
+P8.1

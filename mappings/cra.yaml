@@ -1,0 +1,129 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: cra
+name: EU Cyber Resilience Act Annex I
+family: cra
+note: Part I point 1, Part I point 2 (a) to (m) and Part II points 1 to 8.
+mappings:
+  ASSAY-S3-001:
+  - control: I.2(d)
+    rationale: Public storage is unauthorised access waiting to happen.
+  - control: I.2(b)
+    rationale: Storage should ship closed by default and only be opened on purpose.
+  ASSAY-S3-002:
+  - control: I.2(d)
+    rationale: Public storage is unauthorised access waiting to happen.
+  - control: I.2(b)
+    rationale: Storage should ship closed by default and only be opened on purpose.
+  ASSAY-S3-003:
+  - control: I.2(e)
+    rationale: Confidentiality of stored data relies on encryption at rest.
+  ASSAY-S3-004:
+  - control: I.2(h)
+    rationale: Data stays available after a mistake or attack only if it can be recovered.
+  ASSAY-S3-005:
+  - control: I.2(l)
+    rationale: Recording internal activity is exactly what the missing logs would do.
+  ASSAY-EC2-001:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-EC2-002:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-EC2-003:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-EC2-004:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-EC2-005:
+  - control: I.2(e)
+    rationale: Confidentiality of stored data relies on encryption at rest.
+  ASSAY-EC2-006:
+  - control: I.2(e)
+    rationale: Confidentiality of stored data relies on encryption at rest.
+  ASSAY-RDS-001:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-RDS-002:
+  - control: I.2(e)
+    rationale: Confidentiality of stored data relies on encryption at rest.
+  ASSAY-IAM-001:
+  - control: I.2(d)
+    rationale: Overly broad permissions turn any stolen identity into wide unauthorised access.
+  ASSAY-IAM-002:
+  - control: I.2(d)
+    rationale: Overly broad permissions turn any stolen identity into wide unauthorised access.
+  ASSAY-IAM-003:
+  - control: I.2(d)
+    rationale: Overly broad permissions turn any stolen identity into wide unauthorised access.
+  ASSAY-IAM-004:
+  - control: I.2(d)
+    rationale: Single factor logins are easy to take over.
+  ASSAY-IAM-005:
+  - control: I.2(d)
+    rationale: Long lived credentials extend the window for unauthorised access.
+  ASSAY-IAM-006:
+  - control: I.2(d)
+    rationale: Any outside identity may gain access.
+  ASSAY-IAM-007:
+  - control: I.2(d)
+    rationale: A leaked root key gives unlimited unauthorised access.
+  ASSAY-IAM-008:
+  - control: I.2(d)
+    rationale: Weak passwords make unauthorised access easier.
+  ASSAY-LOG-001:
+  - control: I.2(l)
+    rationale: Recording internal activity is exactly what the missing logs would do.
+  ASSAY-LOG-002:
+  - control: I.2(f)
+    rationale: Integrity protection should cover the audit trail itself.
+  ASSAY-KMS-001:
+  - control: I.2(e)
+    rationale: Confidentiality relies on keys that are kept fresh.
+  ASSAY-KMS-002:
+  - control: I.2(d)
+    rationale: Any outside identity may gain access.
+  ASSAY-SEC-001:
+  - control: I.2(d)
+    rationale: Long lived credentials extend the window for unauthorised access.
+  ASSAY-ACM-001:
+  - control: I.2(h)
+    rationale: A lapsed certificate makes the service unavailable to clients.
+  - control: I.2(e)
+    rationale: Expired certificates push clients toward unsafe fallbacks.
+  ASSAY-ACM-002:
+  - control: I.2(e)
+    rationale: Confidentiality of data in transit relies on strong encryption.
+  - control: I.2(f)
+    rationale: Unprotected traffic can be changed in flight.
+  ASSAY-AZ-STG-001:
+  - control: I.2(d)
+    rationale: Public storage is unauthorised access waiting to happen.
+  - control: I.2(b)
+    rationale: Storage should ship closed by default and only be opened on purpose.
+  ASSAY-AZ-STG-002:
+  - control: I.2(e)
+    rationale: Confidentiality of data in transit relies on strong encryption.
+  - control: I.2(f)
+    rationale: Unprotected traffic can be changed in flight.
+  ASSAY-AZ-NSG-001:
+  - control: I.2(j)
+    rationale: Open ingress widens the attack surface for no business reason.
+  - control: I.2(d)
+    rationale: Any host on the internet can attempt access.
+  ASSAY-AZ-KV-001:
+  - control: I.2(h)
+    rationale: Data stays available after a mistake or attack only if it can be recovered.
+  ASSAY-AZ-DSK-001:
+  - control: I.2(e)
+    rationale: Confidentiality of stored data relies on encryption at rest.

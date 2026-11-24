@@ -1,0 +1,11 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+21(2)(a) risk and policy
+21(2)(b) incident handling
+21(2)(c) continuity and backup
+21(2)(d) supply chain
+21(2)(e) secure acquisition and upkeep
+21(2)(f) measure effectiveness
+21(2)(g) hygiene and training
+21(2)(h) cryptography
+21(2)(i) access and assets
+21(2)(j) MFA and secure comms

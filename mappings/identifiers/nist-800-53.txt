@@ -1,0 +1,45 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+AC-2 account lifecycle
+AC-3 enforce access decisions
+AC-4 control information flow
+AC-6 least privilege
+AC-6(1) security function access
+AC-6(2) non-privileged daily use
+AC-6(5) privileged account limits
+AC-17 remote access
+AC-21 information sharing
+AC-22 public content
+AU-2 events to log
+AU-3 log record content
+AU-6 log review
+AU-9 protect audit data
+AU-11 log retention
+AU-12 log generation
+CA-7 ongoing monitoring
+CM-2 baseline configuration
+CM-6 configuration settings
+CM-7 minimal functionality
+CM-8 component inventory
+CP-9 backups
+CP-10 recovery
+IA-2 user authentication
+IA-2(1) MFA for privileged
+IA-2(2) MFA for others
+IA-4 identifier management
+IA-5 authenticator management
+IA-5(1) password rules
+RA-5 vulnerability scanning
+SC-5 denial of service
+SC-7 boundary protection
+SC-8 transmission protection
+SC-8(1) transit encryption
+SC-12 key management
+SC-13 approved cryptography
+SC-17 certificate management
+SC-23 session authenticity
+SC-28 data at rest
+SC-28(1) encryption at rest
+SI-2 flaw remediation
+SI-4 system monitoring
+SI-7 integrity checks
+SI-12 information retention

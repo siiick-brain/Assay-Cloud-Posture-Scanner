@@ -1,0 +1,115 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: nist-csf
+name: NIST CSF 2.0
+family: nist
+note: Curated subset of subcategories. Counts with NIST SP 800-53 as one framework.
+mappings:
+  ASSAY-S3-001:
+  - control: PR.AA-05
+    rationale: Granting access to everyone is the opposite of permissions sized to need.
+  - control: PR.DS-01
+    rationale: Stored data that anyone can reach has lost its at-rest protection.
+  ASSAY-S3-002:
+  - control: PR.AA-05
+    rationale: Granting access to everyone is the opposite of permissions sized to need.
+  - control: PR.DS-01
+    rationale: Stored data that anyone can reach has lost its at-rest protection.
+  ASSAY-S3-003:
+  - control: PR.DS-01
+    rationale: Data at rest is not protected by encryption.
+  ASSAY-S3-004:
+  - control: PR.DS-11
+    rationale: Recoverable copies of data are not kept.
+  ASSAY-S3-005:
+  - control: PR.PS-04
+    rationale: Log records are not produced for monitoring.
+  - control: DE.CM-09
+    rationale: Platform activity cannot be monitored without the logs.
+  ASSAY-EC2-001:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-EC2-002:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-EC2-003:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-EC2-004:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-EC2-005:
+  - control: PR.DS-01
+    rationale: Data at rest is not protected by encryption.
+  ASSAY-EC2-006:
+  - control: PR.DS-01
+    rationale: Data at rest is not protected by encryption.
+  ASSAY-RDS-001:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-RDS-002:
+  - control: PR.DS-01
+    rationale: Data at rest is not protected by encryption.
+  ASSAY-IAM-001:
+  - control: PR.AA-05
+    rationale: Permissions are not limited by need.
+  ASSAY-IAM-002:
+  - control: PR.AA-05
+    rationale: Permissions are not limited by need.
+  ASSAY-IAM-003:
+  - control: PR.AA-05
+    rationale: Permissions are not limited by need.
+  ASSAY-IAM-004:
+  - control: PR.AA-03
+    rationale: User authentication is weaker than the risk calls for.
+  ASSAY-IAM-005:
+  - control: PR.AA-01
+    rationale: Credentials are not managed through their lifecycle.
+  ASSAY-IAM-006:
+  - control: PR.AA-05
+    rationale: Permission is given to everyone instead of named principals.
+  ASSAY-IAM-007:
+  - control: PR.AA-01
+    rationale: The highest privilege credential exists without need.
+  ASSAY-IAM-008:
+  - control: PR.AA-01
+    rationale: Credential quality is not managed.
+  ASSAY-LOG-001:
+  - control: PR.PS-04
+    rationale: Log records are not produced for monitoring.
+  - control: DE.CM-09
+    rationale: Platform activity cannot be monitored without the logs.
+  ASSAY-LOG-002:
+  - control: PR.PS-04
+    rationale: Logs exist but their integrity cannot be shown.
+  ASSAY-KMS-001:
+  - control: PR.DS-01
+    rationale: Protection of data at rest depends on well managed keys.
+  ASSAY-KMS-002:
+  - control: PR.AA-05
+    rationale: Permission is given to everyone instead of named principals.
+  ASSAY-SEC-001:
+  - control: PR.AA-01
+    rationale: Credentials are not managed through their lifecycle.
+  ASSAY-ACM-001:
+  - control: PR.DS-02
+    rationale: An expired certificate stops protected transport.
+  ASSAY-ACM-002:
+  - control: PR.DS-02
+    rationale: Data in transit is not protected.
+  ASSAY-AZ-STG-001:
+  - control: PR.AA-05
+    rationale: Granting access to everyone is the opposite of permissions sized to need.
+  - control: PR.DS-01
+    rationale: Stored data that anyone can reach has lost its at-rest protection.
+  ASSAY-AZ-STG-002:
+  - control: PR.DS-02
+    rationale: Data in transit is not protected.
+  ASSAY-AZ-NSG-001:
+  - control: PR.IR-01
+    rationale: The network is not protected from unauthorised logical access when anyone can connect.
+  ASSAY-AZ-KV-001:
+  - control: PR.DS-11
+    rationale: Recoverable copies of data are not kept.
+  ASSAY-AZ-DSK-001:
+  - control: PR.DS-01
+    rationale: Data at rest is not protected by encryption.

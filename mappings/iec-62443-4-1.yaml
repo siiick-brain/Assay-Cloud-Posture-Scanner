@@ -1,0 +1,108 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: iec-62443-4-1
+name: IEC 62443-4-1 practices
+family: iec-62443-4-1
+note: Practice requirement identifiers. These are product development practices, so mappings point at the guidance a product team would give operators.
+mappings:
+  ASSAY-S3-001:
+  - control: SG-3
+    rationale: Hardening advice for a cloud product would tell operators to keep storage private; this checks it was followed.
+  ASSAY-S3-002:
+  - control: SG-3
+    rationale: Hardening advice for a cloud product would tell operators to keep storage private; this checks it was followed.
+  ASSAY-S3-003:
+  - control: SG-3
+    rationale: Hardening advice would include turning on storage encryption.
+  ASSAY-S3-004:
+  - control: SG-5
+    rationale: Operating advice would tell users to keep recovery copies.
+  ASSAY-S3-005:
+  - control: SG-5
+    rationale: Operating advice would include keeping audit logging on.
+  ASSAY-EC2-001:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-EC2-002:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-EC2-003:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-EC2-004:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-EC2-005:
+  - control: SG-3
+    rationale: Hardening advice would include turning on storage encryption.
+  ASSAY-EC2-006:
+  - control: SG-3
+    rationale: Hardening advice would include turning on storage encryption.
+  ASSAY-RDS-001:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-RDS-002:
+  - control: SG-3
+    rationale: Hardening advice would include turning on storage encryption.
+  ASSAY-IAM-001:
+  - control: SD-4
+    rationale: Least privilege is a standard secure design practice and the grant ignores it.
+  - control: SG-6
+    rationale: Account handling advice would steer away from broad grants.
+  ASSAY-IAM-002:
+  - control: SD-4
+    rationale: Least privilege is a standard secure design practice and the grant ignores it.
+  - control: SG-6
+    rationale: Account handling advice would steer away from broad grants.
+  ASSAY-IAM-003:
+  - control: SD-4
+    rationale: Least privilege is a standard secure design practice and the grant ignores it.
+  - control: SG-6
+    rationale: Account handling advice would steer away from broad grants.
+  ASSAY-IAM-004:
+  - control: SG-6
+    rationale: Account handling advice would require MFA for interactive users.
+  ASSAY-IAM-005:
+  - control: SG-6
+    rationale: Account handling advice would set rotation for keys and secrets.
+  ASSAY-IAM-006:
+  - control: SG-6
+    rationale: Account handling advice would tell operators to name trusted principals.
+  ASSAY-IAM-007:
+  - control: SG-6
+    rationale: Account handling advice would forbid root keys.
+  ASSAY-IAM-008:
+  - control: SG-6
+    rationale: Account handling advice would set password length rules.
+  ASSAY-LOG-001:
+  - control: SG-5
+    rationale: Operating advice would include keeping audit logging on.
+  ASSAY-LOG-002:
+  - control: SG-5
+    rationale: Operating advice would include turning on log integrity checks.
+  ASSAY-KMS-002:
+  - control: SG-6
+    rationale: Account handling advice would tell operators to name trusted principals.
+  ASSAY-SEC-001:
+  - control: SG-6
+    rationale: Account handling advice would set rotation for keys and secrets.
+  ASSAY-ACM-001:
+  - control: SG-5
+    rationale: Operating advice would include tracking certificate expiry.
+  ASSAY-ACM-002:
+  - control: SG-3
+    rationale: Hardening advice would require strong transport encryption.
+  ASSAY-AZ-STG-001:
+  - control: SG-3
+    rationale: Hardening advice for a cloud product would tell operators to keep storage private; this checks it was followed.
+  ASSAY-AZ-STG-002:
+  - control: SG-3
+    rationale: Hardening advice would require strong transport encryption.
+  ASSAY-AZ-NSG-001:
+  - control: SG-2
+    rationale: Operators are expected to filter traffic in front of the product; this rule checks that layer exists.
+  ASSAY-AZ-KV-001:
+  - control: SG-5
+    rationale: Operating advice would tell users to keep recovery copies.
+  ASSAY-AZ-DSK-001:
+  - control: SG-3
+    rationale: Hardening advice would include turning on storage encryption.

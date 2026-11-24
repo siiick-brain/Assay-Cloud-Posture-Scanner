@@ -1,0 +1,137 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: iso-27001
+name: ISO/IEC 27001:2022 Annex A
+family: iso-27001
+note: All Annex A identifiers are listed; labels are our own short words for the ones we use.
+mappings:
+  ASSAY-S3-001:
+  - control: A.5.15
+    rationale: Access rules should name who may read stored data; public access names no one.
+  - control: A.8.12
+    rationale: Public storage is a direct data leakage path.
+  ASSAY-S3-002:
+  - control: A.5.15
+    rationale: Access rules should name who may read stored data; public access names no one.
+  - control: A.8.12
+    rationale: Public storage is a direct data leakage path.
+  ASSAY-S3-003:
+  - control: A.8.24
+    rationale: Cryptography is available but not applied to stored data.
+  ASSAY-S3-004:
+  - control: A.8.13
+    rationale: Backup copies of information are not maintained.
+  ASSAY-S3-005:
+  - control: A.8.15
+    rationale: Activity logs are not produced or kept.
+  - control: A.8.16
+    rationale: Monitoring has no data to work from.
+  ASSAY-EC2-001:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-EC2-002:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-EC2-003:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-EC2-004:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-EC2-005:
+  - control: A.8.24
+    rationale: Cryptography is available but not applied to stored data.
+  ASSAY-EC2-006:
+  - control: A.8.24
+    rationale: Cryptography is available but not applied to stored data.
+  ASSAY-RDS-001:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-RDS-002:
+  - control: A.8.24
+    rationale: Cryptography is available but not applied to stored data.
+  ASSAY-IAM-001:
+  - control: A.8.2
+    rationale: Privileged rights are handed out without restriction.
+  - control: A.5.15
+    rationale: Access rules should spell out which actions are allowed.
+  ASSAY-IAM-002:
+  - control: A.8.2
+    rationale: Privileged rights are handed out without restriction.
+  - control: A.5.15
+    rationale: Access rules should spell out which actions are allowed.
+  ASSAY-IAM-003:
+  - control: A.8.2
+    rationale: Privileged rights are handed out without restriction.
+  - control: A.5.15
+    rationale: Access rules should spell out which actions are allowed.
+  ASSAY-IAM-004:
+  - control: A.8.5
+    rationale: Secure authentication should include a second factor for console users.
+  ASSAY-IAM-005:
+  - control: A.5.17
+    rationale: Authentication secrets are left in use too long.
+  ASSAY-IAM-006:
+  - control: A.5.15
+    rationale: Access rules should name trusted parties.
+  - control: A.8.3
+    rationale: Use of the resource is not restricted to known identities.
+  ASSAY-IAM-007:
+  - control: A.8.2
+    rationale: Privileged access through root keys is not restricted.
+  ASSAY-IAM-008:
+  - control: A.5.17
+    rationale: Rules for authentication secrets are missing or weak.
+  ASSAY-LOG-001:
+  - control: A.8.15
+    rationale: Activity logs are not produced or kept.
+  - control: A.8.16
+    rationale: Monitoring has no data to work from.
+  ASSAY-LOG-002:
+  - control: A.8.15
+    rationale: Logs should be protected from tampering.
+  ASSAY-KMS-001:
+  - control: A.8.24
+    rationale: Key management is part of the cryptography rules.
+  ASSAY-KMS-002:
+  - control: A.5.15
+    rationale: Access rules should name trusted parties.
+  - control: A.8.3
+    rationale: Use of the resource is not restricted to known identities.
+  ASSAY-SEC-001:
+  - control: A.5.17
+    rationale: Authentication secrets are left in use too long.
+  ASSAY-ACM-001:
+  - control: A.8.24
+    rationale: Certificate lifecycle belongs under the cryptography rules.
+  ASSAY-ACM-002:
+  - control: A.8.24
+    rationale: Cryptography is not applied or is too weak for traffic.
+  ASSAY-AZ-STG-001:
+  - control: A.5.15
+    rationale: Access rules should name who may read stored data; public access names no one.
+  - control: A.8.12
+    rationale: Public storage is a direct data leakage path.
+  ASSAY-AZ-STG-002:
+  - control: A.8.24
+    rationale: Cryptography is not applied or is too weak for traffic.
+  ASSAY-AZ-NSG-001:
+  - control: A.8.20
+    rationale: Network controls should stop untrusted sources reaching hosts directly.
+  - control: A.8.22
+    rationale: Internet traffic and internal services are not separated.
+  ASSAY-AZ-KV-001:
+  - control: A.8.13
+    rationale: Backup copies of information are not maintained.
+  ASSAY-AZ-DSK-001:
+  - control: A.8.24
+    rationale: Cryptography is available but not applied to stored data.

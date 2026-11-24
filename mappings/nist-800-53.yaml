@@ -1,0 +1,161 @@
+# Rules informed by this framework. One-line rationales are our own words, not standard text.
+framework: nist-800-53
+name: NIST SP 800-53 Rev. 5
+family: nist
+note: Curated subset of controls relevant to cloud configuration. Counts with NIST CSF 2.0 as one framework.
+mappings:
+  ASSAY-S3-001:
+  - control: AC-3
+    rationale: Anonymous reads bypass the access decisions this control expects every request to pass.
+  - control: AC-22
+    rationale: Data anyone can fetch is public content, which should only happen by a deliberate decision.
+  ASSAY-S3-002:
+  - control: AC-3
+    rationale: Anonymous reads bypass the access decisions this control expects every request to pass.
+  - control: AC-22
+    rationale: Data anyone can fetch is public content, which should only happen by a deliberate decision.
+  ASSAY-S3-003:
+  - control: SC-28
+    rationale: Stored data lacks the at-rest protection this control asks for.
+  - control: SC-28(1)
+    rationale: The specific gap is missing encryption of stored data.
+  ASSAY-S3-004:
+  - control: CP-9
+    rationale: Without older versions there is no copy to restore from.
+  ASSAY-S3-005:
+  - control: AU-2
+    rationale: The events needed for investigation are not being logged.
+  - control: AU-12
+    rationale: Audit records are not generated for this activity.
+  ASSAY-EC2-001:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  - control: AC-17
+    rationale: Remote admin protocols open to everyone mean remote access is not controlled.
+  ASSAY-EC2-002:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  - control: AC-17
+    rationale: Remote admin protocols open to everyone mean remote access is not controlled.
+  ASSAY-EC2-003:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  ASSAY-EC2-004:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  ASSAY-EC2-005:
+  - control: SC-28
+    rationale: Stored data lacks the at-rest protection this control asks for.
+  - control: SC-28(1)
+    rationale: The specific gap is missing encryption of stored data.
+  ASSAY-EC2-006:
+  - control: SC-28
+    rationale: Stored data lacks the at-rest protection this control asks for.
+  - control: SC-28(1)
+    rationale: The specific gap is missing encryption of stored data.
+  ASSAY-RDS-001:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  ASSAY-RDS-002:
+  - control: SC-28
+    rationale: Stored data lacks the at-rest protection this control asks for.
+  - control: SC-28(1)
+    rationale: The specific gap is missing encryption of stored data.
+  ASSAY-IAM-001:
+  - control: AC-6
+    rationale: The grant goes far beyond what any one task needs.
+  ASSAY-IAM-002:
+  - control: AC-6
+    rationale: The grant goes far beyond what any one task needs.
+  ASSAY-IAM-003:
+  - control: AC-6
+    rationale: The grant goes far beyond what any one task needs.
+  ASSAY-IAM-004:
+  - control: IA-2(1)
+    rationale: Interactive login lacks a second factor.
+  - control: IA-2
+    rationale: Authentication rests on a single secret.
+  ASSAY-IAM-005:
+  - control: IA-5
+    rationale: Credentials are not rotated or retired on a schedule.
+  ASSAY-IAM-006:
+  - control: AC-3
+    rationale: Access is granted without identifying who the caller is.
+  - control: AC-6
+    rationale: Any principal at all is the widest possible grant.
+  ASSAY-IAM-007:
+  - control: AC-6(5)
+    rationale: The most privileged account has programmatic credentials.
+  - control: AC-2
+    rationale: The root account should not be used for daily work.
+  ASSAY-IAM-008:
+  - control: IA-5(1)
+    rationale: Password rules are missing or too short.
+  - control: IA-5
+    rationale: Authenticator strength is not managed.
+  ASSAY-LOG-001:
+  - control: AU-2
+    rationale: The events needed for investigation are not being logged.
+  - control: AU-12
+    rationale: Audit records are not generated for this activity.
+  ASSAY-LOG-002:
+  - control: AU-9
+    rationale: Audit data is not protected against silent change.
+  - control: SI-7
+    rationale: Integrity of log files cannot be checked.
+  ASSAY-KMS-001:
+  - control: SC-12
+    rationale: Key management should include rotating key material.
+  ASSAY-KMS-002:
+  - control: AC-3
+    rationale: Access is granted without identifying who the caller is.
+  - control: AC-6
+    rationale: Any principal at all is the widest possible grant.
+  ASSAY-SEC-001:
+  - control: IA-5
+    rationale: Credentials are not rotated or retired on a schedule.
+  ASSAY-ACM-001:
+  - control: SC-17
+    rationale: Certificates should be issued and renewed under managed rules.
+  - control: SC-12
+    rationale: Certificate keys are part of key lifecycle management.
+  ASSAY-ACM-002:
+  - control: SC-8
+    rationale: Data in transit is not protected.
+  - control: SC-8(1)
+    rationale: Transport encryption is missing or weak.
+  - control: SC-13
+    rationale: Short RSA keys and SHA-1 or MD5 signatures are not approved cryptography.
+  ASSAY-AZ-STG-001:
+  - control: AC-3
+    rationale: Anonymous reads bypass the access decisions this control expects every request to pass.
+  - control: AC-22
+    rationale: Data anyone can fetch is public content, which should only happen by a deliberate decision.
+  ASSAY-AZ-STG-002:
+  - control: SC-8
+    rationale: Data in transit is not protected.
+  - control: SC-8(1)
+    rationale: Transport encryption is missing or weak.
+  ASSAY-AZ-NSG-001:
+  - control: SC-7
+    rationale: Traffic from any address crosses the boundary unfiltered.
+  - control: CM-7
+    rationale: Exposing services nobody outside needs breaks the minimal functionality idea.
+  ASSAY-AZ-KV-001:
+  - control: CP-9
+    rationale: Without older versions there is no copy to restore from.
+  ASSAY-AZ-DSK-001:
+  - control: SC-28
+    rationale: Stored data lacks the at-rest protection this control asks for.
+  - control: SC-28(1)
+    rationale: The specific gap is missing encryption of stored data.

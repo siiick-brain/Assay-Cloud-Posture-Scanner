@@ -1,0 +1,35 @@
+# Identifiers only. Labels, where present, are our own short words, not standard titles.
+GV.PO-01 security policy set
+ID.AM-01 hardware inventory
+ID.AM-02 software inventory
+ID.AM-07 data inventory
+ID.AM-08 asset lifecycle
+ID.RA-01 vulnerabilities known
+PR.AA-01 credentials managed
+PR.AA-02 identity proofing
+PR.AA-03 authenticate users
+PR.AA-04 assertions protected
+PR.AA-05 permissions by need
+PR.AA-06 physical access
+PR.AT-01 staff awareness
+PR.DS-01 data at rest
+PR.DS-02 data in transit
+PR.DS-10 data in use
+PR.DS-11 backups kept
+PR.PS-01 configuration managed
+PR.PS-02 software maintained
+PR.PS-03 hardware maintained
+PR.PS-04 logs produced
+PR.PS-05 unapproved software blocked
+PR.PS-06 secure development
+PR.IR-01 network access limited
+PR.IR-02 environmental threats
+PR.IR-03 resilience
+PR.IR-04 capacity
+DE.CM-01 network monitoring
+DE.CM-03 user activity monitoring
+DE.CM-06 provider monitoring
+DE.CM-09 platform monitoring
+DE.AE-02 event analysis
+RS.MA-01 incident plan run
+RC.RP-01 recovery plan run
