@@ -15,9 +15,9 @@ Status: Done, Partial or Planned. Evidence points to a file or a CI job.
 | SD: defence in depth | Runtime hook, static check and read-only role. Non-root image with read-only root filesystem | scripts/check_allowlist.py, Dockerfile | Done |
 | Secure implementation (SI) | Coding rules, ruff with security rules, mypy strict, style and authorship checks | pyproject.toml, docs/STYLE.md, ci.yml | Done |
 | SI: secrets | gitleaks in the pre-commit hook and in CI | .githooks/pre-commit, security.yml gitleaks job | Done |
-| Verification and validation (SVV) | Unit, property and integration tests, 85 percent coverage gate | ci.yml tests job | Partial: 98.4 percent measured locally, not yet run in CI |
+| Verification and validation (SVV) | Unit, property and integration tests, 85 percent coverage gate | ci.yml tests job | Done: coverage gate passes in GitHub Actions (ci workflow, 2026-11-24) |
 | SVV: security testing | Write-block test, endpoint refusal test, allowlist static check, Trivy config and image scans | ci.yml allowlist job, security.yml | Partial: image scan waits for the Dockerfile |
-| SVV: regression | Weekly testbed oracle, secure zero and insecure equal to ground truth | .github/workflows/regression.yml | Partial: secure 0 and insecure 16 locally, not yet run in CI |
+| SVV: regression | Weekly testbed oracle, secure zero and insecure equal to ground truth | .github/workflows/regression.yml | Partial: secure 0 and insecure 16 locally. The weekly scheduled run has not fired yet |
 | Defect management (DM) | Private advisory channel, findings tracked through a lifecycle with verification status | SECURITY.md, docs/procedures/handle-a-finding.md | Done |
 | DM: disclosure | Fixes and advisories noted in the changelog | CHANGELOG.md | Planned |
 | Security update management (SUM) | Dependency and image rescans on a weekly schedule | security.yml schedule | Done |

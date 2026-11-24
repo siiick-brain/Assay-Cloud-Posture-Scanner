@@ -26,4 +26,4 @@ cspm, cloud-security, aws, azure, security-scanner, posture-management, boto3, m
 - Releases: attach the SBOM artifact from security.yml.
 
 ## Pinned README badges
-Badges for CI status, coverage and licence go in once the workflows have run on GitHub.
+The ci and security workflows pass on GitHub. Badges for CI status and licence can go at the top of README.md.

@@ -19,6 +19,6 @@ Each skill claimed for this project points to a file or test in this repo. scrip
 | Least-privilege IAM review | 9 | cspm/iam/; docs/iam-review.md; examples/iam/ | Verified |
 | Certificate and key management checks | 10 | cspm/tls/; docs/tls-checks.md | Verified |
 | Remediation tracking and rescanning | 12 | cspm/store/; docs/demo/remediation-demo.md | Verified (Moto) |
-| CI/CD security | 15 | .github/workflows/; scripts/check_allowlist.py | Partly verified: actionlint clean, workflows not run on GitHub yet |
+| CI/CD security | 15 | .github/workflows/; scripts/check_allowlist.py | Verified: ci and security workflows pass on GitHub Actions. The weekly regression workflow has not fired yet |
 | Terraform | 2 | testbed/insecure/; testbed/secure/ | Verified (applied to Moto) |
 | Docker hardening of the scanner image | 13 | Dockerfile; docs/usage.md | Verified (non-root, read-only root filesystem run) |
