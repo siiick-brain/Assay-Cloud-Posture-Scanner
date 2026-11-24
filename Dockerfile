@@ -11,7 +11,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 COPY requirements.lock /app/requirements.lock
 # Hashes are mandatory, so a changed or swapped wheel fails the build.
-RUN pip install --require-hashes --no-deps -r /app/requirements.lock \
+# Pull Debian security fixes that landed after the base image digest was cut.
+RUN apt-get update && apt-get upgrade -y --no-install-recommends && rm -rf /var/lib/apt/lists/*     && pip install --require-hashes --no-deps -r /app/requirements.lock \
     && useradd --system --uid 10001 --no-create-home --shell /usr/sbin/nologin cspm \
     && mkdir /out && chown cspm /out
 

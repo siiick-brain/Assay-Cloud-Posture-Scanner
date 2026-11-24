@@ -1,0 +1,15 @@
+# Accepted Trivy config findings, each limited to the files named.
+misconfigurations:
+  - id: DS-0002
+    paths:
+      - docker/openscap/Dockerfile
+      - docker/target/Dockerfile
+    statement: OpenSCAP needs root to read and harden the scanned filesystem. The scanner image itself runs as UID 10001.
+  - id: AWS-0132
+    paths:
+      - testbed/secure/main.tf
+    statement: The secure testbed uses AWS managed encryption for buckets. Customer managed keys are stricter than the baseline the rules check.
+  - id: AWS-0015
+    paths:
+      - testbed/secure/main.tf
+    statement: The secure trail uses AWS managed encryption. Customer managed keys are stricter than the baseline the rules check.

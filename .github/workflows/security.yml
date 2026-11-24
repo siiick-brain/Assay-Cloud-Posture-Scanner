@@ -23,13 +23,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # The insecure testbed is wrong on purpose, so it is skipped here.
+      # The insecure testbed is wrong on purpose. Plan JSON repeats Terraform already scanned from source.
       - uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        env:
+          TRIVY_IGNOREFILE: .trivyignore.yaml
         with:
           version: v0.76.2
           scan-type: config
           scan-ref: .
-          skip-dirs: testbed/insecure,tests,fixtures
+          skip-dirs: testbed/insecure,testbed/plans,tests,fixtures
           severity: HIGH,CRITICAL
           exit-code: "1"
 
