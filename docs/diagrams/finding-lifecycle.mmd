@@ -1,0 +1,16 @@
+%% Finding state machine. verification_status is a separate field set by the rescan mode.
+stateDiagram-v2
+    [*] --> new: first detection
+    new --> open: triaged
+    open --> assigned: owner set
+    assigned --> fixed_claimed: owner reports a fix
+    fixed_claimed --> verified_closed: rescan passes
+    fixed_claimed --> reopened: rescan still fails
+    verified_closed --> reopened: issue returns
+    reopened --> assigned: owner set again
+    verified_closed --> [*]
+    note right of verified_closed
+        emulator or fixture rescan: verified
+        live rescan: observed_unverified
+        no rescan: not_verified
+    end note

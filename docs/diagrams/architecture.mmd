@@ -1,0 +1,34 @@
+%% Module view of assay-cspm. Mirrors docs/architecture.md.
+flowchart LR
+    subgraph Inputs
+        AWS[AWS API or Moto]
+        AZ[Azure fixtures]
+        TF[Terraform plan JSON]
+        EXT[Trivy, Prowler, Checkov and OpenSCAP output]
+    end
+    subgraph cspm
+        HOOK[allowlist hook]
+        COL[collectors]
+        ENG[rule engine]
+        RULES[rules]
+        SCORE[scoring]
+        MAP[mapping]
+        ING[ingest]
+        IAM[iam-review]
+        TLS[tls-check]
+        STORE[(SQLite store)]
+        REP[reports]
+    end
+    CLI[cspm CLI] --> COL
+    CLI --> IAM
+    CLI --> TLS
+    AWS --> HOOK --> COL
+    AZ --> COL
+    TF --> COL
+    COL --> ENG
+    RULES --> ENG
+    ENG --> SCORE --> MAP --> STORE
+    EXT --> ING --> STORE
+    IAM --> REP
+    TLS --> STORE
+    STORE --> REP --> OUT[JSON, SARIF, Markdown, HTML and manifest]

@@ -1,0 +1,24 @@
+%% Data flow with trust boundaries from docs/threat-model.md.
+flowchart TB
+    subgraph TB1[Operator shell]
+        ENV[environment credentials]
+    end
+    subgraph TB2[Scanner process]
+        COL[collectors]
+        HOOK{allowlist hook}
+        RED[evidence redaction]
+        ENG[engine and scoring]
+    end
+    subgraph TB3[Cloud API]
+        API[AWS or Moto]
+    end
+    subgraph TB4[Local disk]
+        DB[(findings store)]
+        RPT[reports and manifest]
+    end
+    ENV -->|read once, never logged| COL
+    COL -->|Describe, List, Get| HOOK
+    HOOK -->|allowed| API
+    HOOK -.->|blocked write| X[error]
+    API -->|configuration| COL
+    COL --> ENG --> RED --> DB --> RPT
