@@ -1,0 +1,24 @@
+# The 16 AWS entries of testbed/ground-truth.yaml keyed by Terraform address, for comparing IaC scanners.
+# Three issues are seeded by omission (no trail, no password policy, EBS default encryption off), so they
+# have no Terraform resource. They get an account: key that no Terraform scanner can report on.
+# tests/unit/test_ingest_testbed_compare.py checks this list against testbed/ground-truth.yaml.
+issues:
+  - {resource: aws_s3_bucket.public, rule: ASSAY-S3-001, name: assay-insecure-public}
+  - {resource: aws_s3_bucket.public, rule: ASSAY-S3-002, name: assay-insecure-public}
+  - {resource: aws_s3_bucket.unencrypted, rule: ASSAY-S3-003, name: assay-insecure-unencrypted}
+  - {resource: aws_s3_bucket.unencrypted, rule: ASSAY-S3-004, name: assay-insecure-unencrypted}
+  - {resource: aws_s3_bucket.unencrypted, rule: ASSAY-S3-005, name: assay-insecure-unencrypted}
+  - {resource: aws_security_group.open, rule: ASSAY-EC2-001, name: assay-insecure-open}
+  - {resource: aws_security_group.open, rule: ASSAY-EC2-003, name: assay-insecure-open}
+  - {resource: aws_ebs_volume.data, rule: ASSAY-EC2-005, name: assay-insecure-data}
+  - {resource: "account:aws.ec2.region_settings", rule: ASSAY-EC2-006, name: us-east-1}
+  - {resource: aws_iam_policy.admin_wildcard, rule: ASSAY-IAM-001, name: assay-insecure-admin-wildcard}
+  - {resource: aws_iam_policy.s3_wildcard, rule: ASSAY-IAM-002, name: assay-insecure-s3-wildcard}
+  - {resource: aws_iam_user.dev, rule: ASSAY-IAM-004, name: assay-insecure-dev}
+  - {resource: aws_iam_user.dev, rule: ASSAY-IAM-005, name: assay-insecure-dev}
+  - {resource: "account:aws.iam.account", rule: ASSAY-IAM-008, name: account}
+  - {resource: "account:aws.cloudtrail.account", rule: ASSAY-LOG-001, name: account}
+  - {resource: aws_kms_key.data, rule: ASSAY-KMS-001, name: assay-insecure-key}
+# Meant to pass every assay rule (the log target bucket).
+secure_resources:
+  - aws_s3_bucket.logs
